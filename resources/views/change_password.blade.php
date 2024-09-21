@@ -56,15 +56,6 @@
             color: #000 !important;
         }
     </style>
-    <style>
-        /* Custom media query to ensure the sidebar doesn't block the row */
-        @media (min-width: 768px) {
-            #sidebarMenu {
-                display: flex !important;
-                flex-direction: column;
-            }
-        }
-    </style>
 @endpush
 
 @section('content')
