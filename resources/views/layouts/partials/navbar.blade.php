@@ -67,7 +67,7 @@
                         <li class="navbar-item">
                             <div class="button-container">
                                 <div class="butn-dark">
-                                    <a href="{{ url('/dashboard') }}"><span>Dashboard</span></a>
+                                    <a href="{{ route('user.dashboard') }}"><span>Dashboard</span></a>
                                 </div>
                             </div>
                         </li>

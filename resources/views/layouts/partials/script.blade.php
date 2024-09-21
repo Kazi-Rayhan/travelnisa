@@ -16,6 +16,7 @@
 <script src="{{ asset('assets/frontend') }}/js/datepicker.js"></script>
 <script src="{{ asset('assets/frontend') }}/js/smooth-scroll.min.js"></script>
 <script src="{{ asset('assets/frontend') }}/js/custom.js"></script>
+<script src="{{ asset('assets/frontend') }}/js/iziToast.min.js"></script>
 
 
 @stack('front_script')

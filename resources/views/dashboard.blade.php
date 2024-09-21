@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+    Dashboard
+@endsection
 @push('front_style')
     <style>
         .side-item {
@@ -30,6 +33,19 @@
         .card-item {
             background-color: #d2a76f94;
         }
+
+        .active {
+            position: relative;
+            left: 20px;
+            color: #fff !important;
+            background-color: #aa8453 !important;
+            border: none;
+        }
+
+        .active i {
+            color: #fff !important;
+            transform: scale(1.3);
+        }
     </style>
 @endpush
 
@@ -37,32 +53,7 @@
     <section class="contact section-padding">
         <div class="container">
             <div class="row mb-90">
-                <div class="col-md-4">
-                    <div class="card bg-transparent">
-                        <div class="card-body p-0">
-                            <ul class="list-group">
-                                <li><a href="#" class="list-group-item d-flex gap-4 side-item  align-items-center "><i
-                                            class="fa-solid fa-house"></i><span>Dashboard</span></a></li>
-                                <li><a href="#" class="list-group-item d-flex gap-4 side-item  align-items-center "><i
-                                            class="fa-solid fa-user"></i><span>My Profile</span></a></li>
-                                <li><a href="#" class="list-group-item d-flex gap-4 side-item align-items-center "><i
-                                            class="fa-solid fa-key"></i><span>Change Password</span></a></li>
-                                <li>
-                                    <form action="{{ route('logout') }}" method="POST" class="d-flex">
-                                        @csrf
-                                        <button type="submit"
-                                            class="list-group-item d-flex gap-4 side-item align-items-center"
-                                            style="border: none; padding: 10px; width: 100%; text-align: left;">
-                                            <i class="fa-solid fa-right-from-bracket"></i>
-                                            <span>Log Out</span>
-                                        </button>
-                                    </form>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @include('layouts.partials.user_sidebar')
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-body">
@@ -82,7 +73,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                   
+
 
                                 </div>
                             </div>
@@ -93,3 +84,5 @@
         </div>
     </section>
 @endsection
+@push('front_script')
+@endpush

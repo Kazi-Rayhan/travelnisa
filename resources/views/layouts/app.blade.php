@@ -14,7 +14,7 @@
     <!-- Preloader -->
     @include('layouts.partials.preloader')
     <!-- Progress scroll totop -->
-    @include('layouts.partials.progress_scroll_totop')
+    @include('layouts.partials.progress_scroll_to_top')
     <!-- Navbar -->
     @include('layouts.partials.navbar')
     <!-- Main Content -->
@@ -23,6 +23,7 @@
     @include('layouts.partials.footer')
     <!-- jQuery -->
     @include('layouts.partials.script')
+    @include('layouts.partials.showToast')
 </body>
 
 </html>
