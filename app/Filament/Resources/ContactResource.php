@@ -40,12 +40,13 @@ class ContactResource extends Resource
                     ->label('Email')
                     ->email()
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->columnSpan('full'),
 
                 Textarea::make('message')
                     ->label('Message')
-                    ->required()
-                    ->maxLength(500),
+                    ->maxLength(500)
+                    ->columnSpan('full')
             ]);
     }
 
@@ -76,9 +77,7 @@ class ContactResource extends Resource
                     ->label('Created At')
                     ->sortable(),
             ])
-            ->filters([
-                
-            ])
+            ->filters([])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
