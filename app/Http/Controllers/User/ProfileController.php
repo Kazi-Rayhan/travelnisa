@@ -17,7 +17,40 @@ class ProfileController extends Controller
 
     public function profilePageSubmit(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string',
+            'preference' => 'required|string',
+        ]);
 
+        if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'mimes:jpeg,png,jpg,gif|max:4096',
+            ], [
+                'image.mimes' => 'Please upload a valid image file (jpeg, png, jpg, gif).',
+                'image.max' => 'Image size cannot exceed 4MB.',
+            ]);
+        }
+        $user = User::findOrFail(Auth::user()->id);
+
+        if ($request->hasFile('image')) {
+            if ($user->image != 'default.jpg') {
+                $old_photo_location = public_path('uploads/user/' . $user->image);
+                if (file_exists($old_photo_location)) {
+                    unlink($old_photo_location);
+                }
+            }
+
+            $new_photo_name = time() . '.' . $request->image->getClientOriginalExtension();
+            $request->image->move(public_path('uploads/user'), $new_photo_name);
+            $user->image = $new_photo_name;
+        }
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->address = $request->address;
+        $user->preference = $request->preference;
+        $user->save();
+        return back()->with('success', 'Profile Updated Successfully.');
     }
 
     public function changePassword()

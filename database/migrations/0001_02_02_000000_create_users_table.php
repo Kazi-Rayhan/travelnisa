@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('image')->default('default.jpg');
+            $table->enum('preference',['solo','friends','family']);
             $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
