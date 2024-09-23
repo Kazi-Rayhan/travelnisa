@@ -19,7 +19,8 @@ class PostCatResource extends Resource
 {
     protected static ?string $model = PostCat::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
+
 
     public static function form(Form $form): Form
     {
