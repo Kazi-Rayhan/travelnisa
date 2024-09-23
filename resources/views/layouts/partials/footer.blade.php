@@ -20,12 +20,12 @@
                     <div class="footer-column footer-explore clearfix">
                         <h3 class="footer-title">Explore</h3>
                         <ul class="footer-explore-list list-unstyled">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="rooms.html">Rooms & Suites</a></li>
-                            <li><a href="restaurant.html">Restaurant</a></li>
-                            <li><a href="spa-wellness.html">Spa & Wellness</a></li>
-                            <li><a href="about.html">About Hotel</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Rooms & Suites</a></li>
+                            <li><a href="#">Restaurant</a></li>
+                            <li><a href="#">Spa & Wellness</a></li>
+                            <li><a href="#">About Hotel</a></li>
+                            <li><a href="#">Contact</a></li>
                         </ul>
                     </div>
                 </div>

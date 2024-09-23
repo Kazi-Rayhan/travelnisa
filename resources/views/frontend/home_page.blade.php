@@ -474,7 +474,7 @@
             <div class="row">
                 <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
                     <div class="img left">
-                        <a href="restaurant.html"><img src="{{ asset('assets/frontend') }}/img/restaurant/1.jpg"
+                        <a href="#"><img src="{{ asset('assets/frontend') }}/img/restaurant/1.jpg"
                                 alt=""></a>
                     </div>
                 </div>
@@ -488,7 +488,7 @@
                             <p>Restaurant inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice
                                 misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami
                                 acsestion augue artine.</p>
-                            <div class="butn-dark"> <a href="restaurant.html"><span>Learn More</span></a> </div>
+                            <div class="butn-dark"> <a href="#"><span>Learn More</span></a> </div>
                         </div>
                     </div>
                 </div>
@@ -504,13 +504,13 @@
                             <p>Spa center inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice
                                 misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami
                                 acsestion augue artine.</p>
-                            <div class="butn-dark"> <a href="spa-wellness.html"><span>Learn More</span></a> </div>
+                            <div class="butn-dark"> <a href="#"><span>Learn More</span></a> </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 p-0 order1 animate-box" data-animate-effect="fadeInRight">
                     <div class="img">
-                        <a href="spa-wellness.html"><img src="{{ asset('assets/frontend') }}/img/spa/3.jpg"
+                        <a href="#"><img src="{{ asset('assets/frontend') }}/img/spa/3.jpg"
                                 alt=""></a>
                     </div>
                 </div>
@@ -518,7 +518,7 @@
             <div class="row">
                 <div class="col-md-6 p-0 animate-box" data-animate-effect="fadeInLeft">
                     <div class="img left">
-                        <a href="spa-wellness.html"><img src="{{ asset('assets/frontend') }}/img/spa/2.jpg"
+                        <a href="#"><img src="{{ asset('assets/frontend') }}/img/spa/2.jpg"
                                 alt=""></a>
                     </div>
                 </div>
@@ -532,7 +532,7 @@
                             <p>Restaurant inilla duiman at elit finibus viverra nec a lacus themo the nesudea seneoice
                                 misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami
                                 acsestion augue artine.</p>
-                            <div class="butn-dark"> <a href="spa-wellness.html"><span>Learn More</span></a> </div>
+                            <div class="butn-dark"> <a href="#"><span>Learn More</span></a> </div>
                         </div>
                     </div>
                 </div>
@@ -548,13 +548,13 @@
                             <p>The health club & pool at elit finibus viverra nec a lacus themo the nesudea seneoice
                                 misuscipit non sagie the fermen ziverra tristiue duru the ivite dianne onen nivami
                                 acsestion augue artine.</p>
-                            <div class="butn-dark"> <a href="spa-wellness.html"><span>Learn More</span></a> </div>
+                            <div class="butn-dark"> <a href="#"><span>Learn More</span></a> </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 p-0 order1 animate-box" data-animate-effect="fadeInRight">
                     <div class="img">
-                        <a href="spa-wellness.html"><img src="{{ asset('assets/frontend') }}/img/spa/1.jpg"
+                        <a href="#"><img src="{{ asset('assets/frontend') }}/img/spa/1.jpg"
                                 alt=""></a>
                     </div>
                 </div>
@@ -577,53 +577,53 @@
                             <div class="position-re o-hidden"> <img src="{{ asset('assets/frontend') }}/img/news/1.jpg"
                                     alt="">
                                 <div class="date">
-                                    <a href="post.html"> <span>Dec</span> <i>02</i> </a>
+                                    <a href="#"> <span>Dec</span> <i>02</i> </a>
                                 </div>
                             </div>
                             <div class="con"> <span class="category">
-                                    <a href="news.html">Restaurant</a>
+                                    <a href="#">Restaurant</a>
                                 </span>
-                                <h5><a href="post.html">Historic restaurant renovated</a></h5>
+                                <h5><a href="#">Historic restaurant renovated</a></h5>
                             </div>
                         </div>
                         <div class="item">
                             <div class="position-re o-hidden"> <img src="{{ asset('assets/frontend') }}/img/news/2.jpg"
                                     alt="">
                                 <div class="date">
-                                    <a href="post.html"> <span>Dec</span> <i>04</i> </a>
+                                    <a href="#"> <span>Dec</span> <i>04</i> </a>
                                 </div>
                             </div>
                             <div class="con"> <span class="category">
-                                    <a href="news.html">Spa</a>
+                                    <a href="#">Spa</a>
                                 </span>
-                                <h5><a href="post.html">Benefits of Spa Treatments</a></h5>
+                                <h5><a href="#">Benefits of Spa Treatments</a></h5>
                             </div>
                         </div>
                         <div class="item">
                             <div class="position-re o-hidden"> <img src="{{ asset('assets/frontend') }}/img/news/3.jpg"
                                     alt="">
                                 <div class="date">
-                                    <a href="post.html"> <span>Dec</span> <i>06</i> </a>
+                                    <a href="#"> <span>Dec</span> <i>06</i> </a>
                                 </div>
                             </div>
                             <div class="con"> <span class="category">
-                                    <a href="news.html">Bathrooms</a>
+                                    <a href="#">Bathrooms</a>
                                 </span>
-                                <h5><a href="post.html">Hotel Bathroom Collections</a></h5>
+                                <h5><a href="#">Hotel Bathroom Collections</a></h5>
                             </div>
                         </div>
                         <div class="item">
                             <div class="position-re o-hidden"> <img src="{{ asset('assets/frontend') }}/img/news/4.jpg"
                                     alt="">
                                 <div class="date">
-                                    <a href="post.html"> <span>Dec</span> <i>08</i> </a>
+                                    <a href="#"> <span>Dec</span> <i>08</i> </a>
                                 </div>
                             </div>
                             <div class="con">
                                 <span class="category">
-                                    <a href="news.html">Health</a>
+                                    <a href="#">Health</a>
                                 </span>
-                                <h5><a href="post.html">Weight Loss with Fitness Health Club</a></h5>
+                                <h5><a href="#">Weight Loss with Fitness Health Club</a></h5>
                             </div>
                         </div>
 
@@ -631,26 +631,26 @@
                             <div class="position-re o-hidden"> <img src="{{ asset('assets/frontend') }}/img/news/6.jpg"
                                     alt="">
                                 <div class="date">
-                                    <a href="post.html"> <span>Dec</span> <i>08</i> </a>
+                                    <a href="#"> <span>Dec</span> <i>08</i> </a>
                                 </div>
                             </div>
                             <div class="con"> <span class="category">
-                                    <a href="news.html">Design</a>
+                                    <a href="#">Design</a>
                                 </span>
-                                <h5><a href="post.html">Retro Lighting Design in The Hotels</a></h5>
+                                <h5><a href="#">Retro Lighting Design in The Hotels</a></h5>
                             </div>
                         </div>
                         <div class="item">
                             <div class="position-re o-hidden"> <img src="{{ asset('assets/frontend') }}/img/news/5.jpg"
                                     alt="">
                                 <div class="date">
-                                    <a href="post.html"> <span>Dec</span> <i>08</i> </a>
+                                    <a href="#"> <span>Dec</span> <i>08</i> </a>
                                 </div>
                             </div>
                             <div class="con"> <span class="category">
-                                    <a href="news.html">Health</a>
+                                    <a href="#">Health</a>
                                 </span>
-                                <h5><a href="post.html">Benefits of Swimming for Your Health</a></h5>
+                                <h5><a href="#">Benefits of Swimming for Your Health</a></h5>
                             </div>
                         </div>
 

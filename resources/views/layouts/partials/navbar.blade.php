@@ -15,38 +15,38 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="{{ route('home_page') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">Rooms & Suites
                         <i class="ti-angle-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="rooms.html" class="dropdown-item"><span>Rooms 1</span></a></li>
-                        <li><a href="rooms2.html" class="dropdown-item"><span>Rooms 2</span></a></li>
-                        <li><a href="rooms3.html" class="dropdown-item"><span>Rooms 3</span></a></li>
-                        <li><a href="room-details.html" class="dropdown-item"><span>Room Details</span></a></li>
+                        <li><a href="#" class="dropdown-item"><span>Rooms 1</span></a></li>
+                        <li><a href="#" class="dropdown-item"><span>Rooms 2</span></a></li>
+                        <li><a href="#" class="dropdown-item"><span>Rooms 3</span></a></li>
+                        <li><a href="#" class="dropdown-item"><span>Room Details</span></a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="restaurant.html">Restaurant</a></li>
-                <li class="nav-item"><a class="nav-link" href="spa-wellness.html">Spa</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Restaurant</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Spa</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">Pages <i class="ti-angle-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="services.html" class="dropdown-item"><span>Services</span></a></li>
-                        <li><a href="facilities.html" class="dropdown-item"><span>Facilities</span></a></li>
-                        <li><a href="gallery.html" class="dropdown-item"><span>Gallery</span></a></li>
-                        <li><a href="team.html" class="dropdown-item"><span>Team</span></a></li>
-                        <li><a href="pricing.html" class="dropdown-item"><span>Pricing</span></a></li>
-                        <li><a href="careers.html" class="dropdown-item"><span>Careers</span></a></li>
+                        <li><a href="#" class="dropdown-item"><span>Services</span></a></li>
+                        <li><a href="#" class="dropdown-item"><span>Facilities</span></a></li>
+                        <li><a href="#" class="dropdown-item"><span>Gallery</span></a></li>
+                        <li><a href="#" class="dropdown-item"><span>Team</span></a></li>
+                        <li><a href="#" class="dropdown-item"><span>Pricing</span></a></li>
+                        <li><a href="#" class="dropdown-item"><span>Careers</span></a></li>
                         <li><a href="{{ route('faq_page') }}" class="dropdown-item"><span>F.A.Qs</span></a></li>
                         <li class="dropdown-submenu dropdown">
                             <a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" aria-expanded="false" href="#"><span>Other Pages <i
                                         class="ti-angle-right"></i></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="404.html" class="dropdown-item"><span>404 Page</span></a></li>
-                                <li><a href="coming-soon.html" class="dropdown-item"><span>Coming Soon</span></a>
+                                {{-- <li><a href="404.html" class="dropdown-item"><span>404 Page</span></a></li> --}}
+                                <li><a href="#" class="dropdown-item"><span>Coming Soon</span></a>
                                 </li>
                             </ul>
                         </li>
@@ -56,9 +56,9 @@
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         data-bs-auto-close="outside" aria-expanded="false">News <i class="ti-angle-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="news.html" class="dropdown-item"><span>News 1</span></a></li>
-                        <li><a href="news2.html" class="dropdown-item"><span>News 2</span></a></li>
-                        <li><a href="post.html" class="dropdown-item"><span>Post Page</span></a></li>
+                        <li><a href="#" class="dropdown-item"><span>News 1</span></a></li>
+                        <li><a href="#" class="dropdown-item"><span>News 2</span></a></li>
+                        <li><a href="#" class="dropdown-item"><span>Post Page</span></a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>

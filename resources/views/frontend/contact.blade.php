@@ -5,7 +5,8 @@
 @endpush
 @section('content')
     <!-- Header Banner -->
-    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="3" data-background="img/slider/5.jpg">
+    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="3"
+        data-background="{{ asset('assets/frontend/img/slider/5.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-left caption mt-90">
@@ -46,7 +47,8 @@
                 </div>
                 <div class="col-md-5 mb-30 offset-md-1">
                     <h3>Get in touch</h3>
-                    <form method="post" class="contact__form" action="mail.php">
+                    <form action="{{ route('contact_store') }}" method="POST">
+                        @csrf
                         <!-- form message -->
                         <div class="row">
                             <div class="col-12">
@@ -57,16 +59,13 @@
                         <!-- form elements -->
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <input name="name" type="text" placeholder="Your Name *" required>
+                                <input name="f_name" type="text" placeholder="Your First Name *" required>
                             </div>
                             <div class="col-md-6 form-group">
-                                <input name="email" type="email" placeholder="Your Email *" required>
+                                <input name="l_name" type="text" placeholder="Your Last Name *" required>
                             </div>
-                            <div class="col-md-6 form-group">
-                                <input name="phone" type="text" placeholder="Your Number *" required>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <input name="subject" type="text" placeholder="Subject *" required>
+                            <div class="col-md-12 form-group">
+                                <input name="email" type="email" placeholder="Your email *" required>
                             </div>
                             <div class="col-md-12 form-group">
                                 <textarea name="message" id="message" cols="30" rows="4" placeholder="Message *" required></textarea>
@@ -90,8 +89,8 @@
     </section>
     <!-- Reservation & Booking Form -->
     <section class="testimonials">
-        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/slider/2.jpg"
-            data-overlay-dark="2">
+        <div class="background bg-img bg-fixed section-padding pb-0"
+            data-background="{{ asset('assets/frontend/img/slider/2.jpg') }}" data-overlay-dark="2">
             <div class="container">
                 <div class="row">
                     <!-- Reservation -->
@@ -185,22 +184,28 @@
                 <div class="col-md-7">
                     <div class="owl-carousel owl-theme">
                         <div class="clients-logo">
-                            <a href="#0"><img src="img/clients/1.png" alt=""></a>
+                            <a href="#0"><img src="{{ asset('assets/frontend/img/clients/1.png') }}"
+                                    alt=""></a>
                         </div>
                         <div class="clients-logo">
-                            <a href="#0"><img src="img/clients/2.png" alt=""></a>
+                            <a href="#0"><img src="{{ asset('assets/frontend/img/clients/2.png') }}"
+                                    alt=""></a>
                         </div>
                         <div class="clients-logo">
-                            <a href="#0"><img src="img/clients/3.png" alt=""></a>
+                            <a href="#0"><img src="{{ asset('assets/frontend/img/clients/3.png') }}"
+                                    alt=""></a>
                         </div>
                         <div class="clients-logo">
-                            <a href="#0"><img src="img/clients/4.png" alt=""></a>
+                            <a href="#0"><img src="{{ asset('assets/frontend/img/clients/4.png') }}"
+                                    alt=""></a>
                         </div>
                         <div class="clients-logo">
-                            <a href="#0"><img src="img/clients/5.png" alt=""></a>
+                            <a href="#0"><img src="{{ asset('assets/frontend/img/clients/5.png') }}"
+                                    alt=""></a>
                         </div>
                         <div class="clients-logo">
-                            <a href="#0"><img src="img/clients/6.png" alt=""></a>
+                            <a href="#0"><img src="{{ asset('assets/frontend/img/clients/6.png') }}"
+                                    alt=""></a>
                         </div>
                     </div>
                 </div>

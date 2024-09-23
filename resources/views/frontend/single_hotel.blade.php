@@ -99,7 +99,7 @@
                                 per day.</p>
                         </div>
                         <div class="col-md-12">
-                            <div class="butn-dark mt-15 mb-30"> <a href="rooms2.html"><span>Check Now</span></a> </div>
+                            <div class="butn-dark mt-15 mb-30"> <a href="#"><span>Check Now</span></a> </div>
                         </div>
                     </div>
                 </div>

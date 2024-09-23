@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use App\Models\Faq;
 use App\Models\Hotel;
 use App\Models\Slider;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -28,7 +31,7 @@ class PagesController extends Controller
 
         $sliders = Slider::where('status', 1)->latest()->get();
 
-        return view('frontend.home_page', compact('hotels','groupHotels' ,'sliders'));
+        return view('frontend.home_page', compact('hotels', 'groupHotels', 'sliders'));
     }
 
     public function faqsPage()
@@ -37,8 +40,30 @@ class PagesController extends Controller
         return view('frontend.faq_page', compact('faqs'));
     }
 
-    
-    public function contact(){
+
+    public function contact()
+    {
         return view('Frontend.contact');
+    }
+    public function contact_store(Request $request)
+    {
+
+        $request->validate([
+            'f_name' => 'required|string|max:255',
+            'l_name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'message' => 'required|string',
+        ]);
+
+        $data = [
+            'f_name' => $request->f_name,
+            'l_name' => $request->l_name,
+            'email' => $request->email,
+            'message' => $request->message,
+        ]; 
+
+        Mail::to('your-email@example.com')->send(new ContactMail($data));
+
+        return back()->with('success', 'Your message has been sent successfully.');
     }
 }
