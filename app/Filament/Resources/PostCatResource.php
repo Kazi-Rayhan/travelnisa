@@ -53,7 +53,7 @@ class PostCatResource extends Resource
             ->columns([
                 TextColumn::make('name')->sortable()->searchable()->label('Category Name'),
                 TextColumn::make('slug')->sortable()->searchable()->label('Category Slug'),
-                TextColumn::make('created_at')->label('Created At')->sortable(),
+                TextColumn::make('created_at')->label('Created At')->sortable()->dateTime('M d, Y'),
             ])
             ->filters([
                 //

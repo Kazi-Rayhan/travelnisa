@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             HotelSeeder::class,
             RoomTypeSeeder::class,
             FaqSeeder::class,
+            PostCatSeeder::class,
+            PostSeeder::class,
         ]);
     }
 }
