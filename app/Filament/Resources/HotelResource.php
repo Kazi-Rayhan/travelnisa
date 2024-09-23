@@ -2,18 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Tables;
+use App\Filament\Resources\HotelResource\Pages;
 use App\Models\Hotel;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Filament\Resources\Resource;
-use Filament\Forms\Components\Textarea;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\TagsInput;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
-use App\Filament\Resources\HotelResource\Pages;
+use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 
 class HotelResource extends Resource
 {
@@ -25,6 +25,7 @@ class HotelResource extends Resource
     {
         return $form
             ->schema([
+
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255)
@@ -44,16 +45,20 @@ class HotelResource extends Resource
                     ->required()
                     ->directory('hotel')
                     ->multiple()
-                    ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png'])
-                    ->maxSize(4096),
+                    ->visibility('public')
+                    ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png']),
                 Textarea::make('summary')
                     ->required()
                     ->rows(3)
                     ->autosize()
                     ->maxLength(255),
-                RichEditor::make(name: 'description')
+                TagsInput::make('attributes')
+                    ->separator(',')
+                    ->label('Attributes')
+                    ->placeholder('New Attributes')
                     ->required(),
-                    TagsInput::make('attributes')
+                RichEditor::make(name: 'description')
+                    ->required()->columnSpanFull(),
             ]);
     }
 
