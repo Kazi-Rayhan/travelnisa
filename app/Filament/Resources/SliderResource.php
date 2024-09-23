@@ -36,6 +36,7 @@ class SliderResource extends Resource
                 FileUpload::make('image')
                     ->image()
                     ->directory('sliders')
+                    ->columnSpanFull()
                     ->required(),
                 Toggle::make('status')
                     ->columnSpan('full')

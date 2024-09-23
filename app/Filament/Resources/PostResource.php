@@ -12,6 +12,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Grid;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -34,55 +35,62 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')
-                    ->required()
-                    ->maxLength(255)
-                    ->reactive() // Make the field reactive
-                    ->afterStateUpdated(function ($state, callable $set, $get) {
-                        // Only generate the slug if it's a new record (no existing record)
-                        if (!$get('record')) {
-                            $set('slug', \Str::slug($state));
-                        }
-                    }),
+                Grid::make(2)
+                    ->schema([
 
-                TextInput::make('seo_title')
-                    ->maxLength(255),
+                        TextInput::make('title')
+                            ->required()
+                            ->maxLength(255)
+                            ->reactive() // Make the field reactive
+                            ->afterStateUpdated(function ($state, callable $set, $get) {
+                                // Only generate the slug if it's a new record (no existing record)
+                                if (!$get('record')) {
+                                    $set('slug', \Str::slug($state));
+                                }
+                            }),
+                        TextInput::make('slug')
+                            ->required()
+                            ->disabled(fn($get) => $get('record') == ! null),
+                        TextInput::make('meta_description')
+                            ->required(),
 
-                TextInput::make('slug')
-                    ->required()
-                    ->disabled(fn($get) => $get('record') ==! null),
+                        TextInput::make('meta_keywords')
+                            ->required(),
+                    ]),
 
-                Textarea::make('excerpt')
-                    ->required(),
+                Grid::make(3)
+                    ->schema([
+                        TextInput::make('seo_title')
+                            ->maxLength(255),
+                        Select::make('category_id')
+                            ->label('Category') // Add a label
+                            ->relationship('category', 'name') // Assuming you have a Category model with 'name' field
+                            ->required(),
 
-                TextInput::make('meta_description')
-                    ->required(),
+                        Select::make('status')
+                            ->options([
+                                'PUBLISHED' => 'Published',
+                                'DRAFT' => 'Draft',
+                                'PENDING' => 'Pending',
+                            ])
+                            ->default('DRAFT')
+                            ->required(),
 
-                TextInput::make('meta_keywords')
-                    ->required(),
+                    ]),
+                Grid::make(1)
+                    ->schema([
+                        FileUpload::make('image')
+                            ->image()
+                            ->directory('posts'),
+                        Textarea::make('excerpt')
+                        ->rows(6)
+                            ->required(),
+                        RichEditor::make('body')
+                            ->required(),
+                        Toggle::make('featured')
+                            ->label('Featured'),
 
-                Select::make('category_id')
-                    ->label('Category') // Add a label
-                    ->relationship('category', 'name') // Assuming you have a Category model with 'name' field
-                    ->required(),
-
-                Select::make('status')
-                    ->options([
-                        'PUBLISHED' => 'Published',
-                        'DRAFT' => 'Draft',
-                        'PENDING' => 'Pending',
-                    ])
-                    ->default('DRAFT')
-                    ->required(),
-                RichEditor::make('body')
-                    ->required(),
-
-                FileUpload::make('image')
-                    ->image()
-                    ->directory('posts'),
-
-                Toggle::make('featured')
-                    ->label('Featured'),
+                    ]),
             ]);
     }
 

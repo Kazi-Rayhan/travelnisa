@@ -47,6 +47,7 @@ class ContactResource extends Resource
                 Textarea::make('message')
                     ->label('Message')
                     ->maxLength(500)
+                    ->rows(6)
                     ->columnSpan('full')
             ]);
     }

@@ -35,8 +35,8 @@ class FaqResource extends Resource
                 Textarea::make('body')
                     ->columnSpan('full')
                     ->label('Answer')
-                    ->required()
-                    ->autosize(),
+                    ->rows(6)
+                    ->required(),
             ]);
     }
 

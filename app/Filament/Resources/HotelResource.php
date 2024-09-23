@@ -9,6 +9,7 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Grid;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -31,35 +32,46 @@ class HotelResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->label('Hotel Name')
+                    ->columnSpanFull()
                     ->reactive(),
-                TextInput::make('country')
-                    ->required()
-                    ->maxLength(25)
-                    ->label('Country')
-                    ->reactive(),
-                TextInput::make('city')
-                    ->required()
-                    ->maxLength(100)
-                    ->label('City')
-                    ->reactive(),
+                Grid::make(3)
+                    ->schema([
+
+                        TextInput::make('country')
+                            ->required()
+                            ->maxLength(25)
+                            ->label('Country')
+                            ->reactive(),
+                        TextInput::make('city')
+                            ->required()
+                            ->maxLength(100)
+                            ->label('City')
+                            ->reactive(),
+                        TagsInput::make('attributes')
+                            ->separator(',')
+                            ->label('Attributes')
+                            ->placeholder('New Attributes')
+                            ->required(),
+
+                    ]),
+
                 FileUpload::make('images')
                     ->required()
                     ->directory('hotel')
                     ->multiple()
                     ->visibility('public')
+                    ->columnSpanFull()
                     ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png']),
                 Textarea::make('summary')
                     ->required()
-                    ->rows(3)
+                    ->rows(6)
                     ->autosize()
+                    ->columnSpanFull()
                     ->maxLength(255),
-                TagsInput::make('attributes')
-                    ->separator(',')
-                    ->label('Attributes')
-                    ->placeholder('New Attributes')
-                    ->required(),
+
                 RichEditor::make(name: 'description')
-                    ->required()->columnSpanFull(),
+                    ->required()
+                    ->columnSpanFull(),
             ]);
     }
 
