@@ -204,17 +204,18 @@
                     @if (count($groups) >= 3)
                         @foreach ($groups as $hotel)
                             @php
-                                $images = json_decode($hotel['images'], true);
+                                $images = is_array($hotel['images'])? $hotel['images']: json_decode($hotel['images'], true);
                                 $image = $images[0] ?? null;
                             @endphp
                             <div class="col-md-4">
                                 <div class="item">
-                                    <div class="position-re o-hidden"> <img
-                                            src="{{ $image }}" alt=""> </div>
+                                    <div class="position-re o-hidden"> <img src="{{ $image }}" alt="">
+                                    </div>
                                     <span class="category"><a href="#">Book</a></span>
                                     <div class="con">
                                         <h6><a href="{{ route('single_hotel', $hotel['id']) }}">150$ / Night</a></h6>
-                                        <h5><a href="{{ route('single_hotel', $hotel['id']) }}">{{ $hotel['name'] }}</a> </h5>
+                                        <h5><a href="{{ route('single_hotel', $hotel['id']) }}">{{ $hotel['name'] }}</a>
+                                        </h5>
                                         <div class="line"></div>
                                         {{-- @dd($hotel) --}}
                                         <div class="row facilities">
@@ -227,7 +228,8 @@
                                                 </ul>
                                             </div>
                                             <div class="col col-md-5 text-end">
-                                                <div class="permalink"><a href="{{ route('single_hotel', $hotel['id']) }}">Details <i
+                                                <div class="permalink"><a
+                                                        href="{{ route('single_hotel', $hotel['id']) }}">Details <i
                                                             class="ti-arrow-right"></i></a></div>
                                             </div>
                                         </div>
@@ -239,12 +241,13 @@
                         @foreach ($groups as $hotel)
                             <div class="col-md-6">
                                 <div class="item">
-                                    <div class="position-re o-hidden"> <img
-                                            src="{{ $image }}" alt=""> </div>
+                                    <div class="position-re o-hidden"> <img src="{{ $image }}" alt="">
+                                    </div>
                                     <span class="category"><a href="#">Book</a></span>
                                     <div class="con">
                                         <h6><a href="{{ route('single_hotel', $hotel['id']) }}">300$ / Night</a></h6>
-                                        <h5><a href="{{ route('single_hotel', $hotel['id']) }}">{{ $hotel['name'] }}</a></h5>
+                                        <h5><a href="{{ route('single_hotel', $hotel['id']) }}">{{ $hotel['name'] }}</a>
+                                        </h5>
                                         <div class="line"></div>
                                         <div class="row facilities">
                                             <div class="col col-md-7">
@@ -256,7 +259,8 @@
                                                 </ul>
                                             </div>
                                             <div class="col col-md-5 text-end">
-                                                <div class="permalink"><a href="{{ route('single_hotel', $hotel['id']) }}">Details <i
+                                                <div class="permalink"><a
+                                                        href="{{ route('single_hotel', $hotel['id']) }}">Details <i
                                                             class="ti-arrow-right"></i></a></div>
                                             </div>
                                         </div>
