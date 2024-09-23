@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Frontend\HotelController;
 use App\Http\Controllers\Frontend\PagesController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProfileController;
@@ -8,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('/')->group(function () {
     Route::get('', [PagesController::class, 'homePage'])->name('home_page');
+    Route::get('single-hotel/{hotel}', [HotelController::class, 'show'])->name('single_hotel');
 });
 
 Auth::routes();

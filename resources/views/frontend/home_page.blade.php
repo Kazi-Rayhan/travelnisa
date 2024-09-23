@@ -200,131 +200,73 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="{{ asset('assets/frontend') }}/img/rooms/1.jpg"
-                                alt=""> </div> <span class="category"><a href="rooms2.html">Book</a></span>
-                        <div class="con">
-                            <h6><a href="room-details.html">150$ / Night</a></h6>
-                            <h5><a href="room-details.html">Junior Suite</a> </h5>
-                            <div class="line"></div>
-                            <div class="row facilities">
-                                <div class="col col-md-7">
-                                    <ul>
-                                        <li><i class="flaticon-bed"></i></li>
-                                        <li><i class="flaticon-bath"></i></li>
-                                        <li><i class="flaticon-breakfast"></i></li>
-                                        <li><i class="flaticon-towel"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="col col-md-5 text-end">
-                                    <div class="permalink"><a href="room-details.html">Details <i
-                                                class="ti-arrow-right"></i></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="{{ asset('assets/frontend') }}/img/rooms/2.jpg"
-                                alt=""> </div> <span class="category"><a href="rooms2.html">Book</a></span>
-                        <div class="con">
-                            <h6><a href="room-details.html">200$ / Night</a></h6>
-                            <h5><a href="room-details.html">Family Room</a></h5>
-                            <div class="line"></div>
-                            <div class="row facilities">
-                                <div class="col col-md-7">
-                                    <ul>
-                                        <li><i class="flaticon-bed"></i></li>
-                                        <li><i class="flaticon-bath"></i></li>
-                                        <li><i class="flaticon-breakfast"></i></li>
-                                        <li><i class="flaticon-towel"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="col col-md-5 text-end">
-                                    <div class="permalink"><a href="room-details.html">Details <i
-                                                class="ti-arrow-right"></i></a></div>
+                @foreach ($groupHotels as $groups)
+                    @if (count($groups) >= 3)
+                        @foreach ($groups as $hotel)
+                            @php
+                                $images = json_decode($hotel['images'], true);
+                                $image = $images[0] ?? null;
+                            @endphp
+                            <div class="col-md-4">
+                                <div class="item">
+                                    <div class="position-re o-hidden"> <img
+                                            src="{{ $image }}" alt=""> </div>
+                                    <span class="category"><a href="#">Book</a></span>
+                                    <div class="con">
+                                        <h6><a href="{{ route('single_hotel', $hotel['id']) }}">150$ / Night</a></h6>
+                                        <h5><a href="{{ route('single_hotel', $hotel['id']) }}">{{ $hotel['name'] }}</a> </h5>
+                                        <div class="line"></div>
+                                        {{-- @dd($hotel) --}}
+                                        <div class="row facilities">
+                                            <div class="col col-md-7">
+                                                <ul>
+                                                    <li><i class="flaticon-bed"></i></li>
+                                                    <li><i class="flaticon-bath"></i></li>
+                                                    <li><i class="flaticon-breakfast"></i></li>
+                                                    <li><i class="flaticon-towel"></i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col col-md-5 text-end">
+                                                <div class="permalink"><a href="{{ route('single_hotel', $hotel['id']) }}">Details <i
+                                                            class="ti-arrow-right"></i></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="{{ asset('assets/frontend') }}/img/rooms/3.jpg"
-                                alt=""> </div> <span class="category"><a href="rooms2.html">Book</a></span>
-                        <div class="con">
-                            <h6><a href="room-details.html">250$ / Night</a></h6>
-                            <h5><a href="room-details.html">Double Room</a></h5>
-                            <div class="line"></div>
-                            <div class="row facilities">
-                                <div class="col col-md-7">
-                                    <ul>
-                                        <li><i class="flaticon-bed"></i></li>
-                                        <li><i class="flaticon-bath"></i></li>
-                                        <li><i class="flaticon-breakfast"></i></li>
-                                        <li><i class="flaticon-towel"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="col col-md-5 text-end">
-                                    <div class="permalink"><a href="room-details.html">Details <i
-                                                class="ti-arrow-right"></i></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="{{ asset('assets/frontend') }}/img/rooms/4.jpg"
-                                alt=""> </div> <span class="category"><a href="rooms2.html">Book</a></span>
-                        <div class="con">
-                            <h6><a href="room-details.html">300$ / Night</a></h6>
-                            <h5><a href="room-details.html">Deluxe Room</a></h5>
-                            <div class="line"></div>
-                            <div class="row facilities">
-                                <div class="col col-md-7">
-                                    <ul>
-                                        <li><i class="flaticon-bed"></i></li>
-                                        <li><i class="flaticon-bath"></i></li>
-                                        <li><i class="flaticon-breakfast"></i></li>
-                                        <li><i class="flaticon-towel"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="col col-md-5 text-end">
-                                    <div class="permalink"><a href="room-details.html">Details <i
-                                                class="ti-arrow-right"></i></a></div>
+                        @endforeach
+                    @else
+                        @foreach ($groups as $hotel)
+                            <div class="col-md-6">
+                                <div class="item">
+                                    <div class="position-re o-hidden"> <img
+                                            src="{{ $image }}" alt=""> </div>
+                                    <span class="category"><a href="#">Book</a></span>
+                                    <div class="con">
+                                        <h6><a href="{{ route('single_hotel', $hotel['id']) }}">300$ / Night</a></h6>
+                                        <h5><a href="{{ route('single_hotel', $hotel['id']) }}">{{ $hotel['name'] }}</a></h5>
+                                        <div class="line"></div>
+                                        <div class="row facilities">
+                                            <div class="col col-md-7">
+                                                <ul>
+                                                    <li><i class="flaticon-bed"></i></li>
+                                                    <li><i class="flaticon-bath"></i></li>
+                                                    <li><i class="flaticon-breakfast"></i></li>
+                                                    <li><i class="flaticon-towel"></i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col col-md-5 text-end">
+                                                <div class="permalink"><a href="{{ route('single_hotel', $hotel['id']) }}">Details <i
+                                                            class="ti-arrow-right"></i></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="{{ asset('assets/frontend') }}/img/rooms/7.jpg"
-                                alt=""> </div> <span class="category"><a href="rooms2.html">Book</a></span>
-                        <div class="con">
-                            <h6><a href="room-details.html">150$ / Night</a></h6>
-                            <h5><a href="room-details.html">Superior Room</a></h5>
-                            <div class="line"></div>
-                            <div class="row facilities">
-                                <div class="col col-md-7">
-                                    <ul>
-                                        <li><i class="flaticon-bed"></i></li>
-                                        <li><i class="flaticon-bath"></i></li>
-                                        <li><i class="flaticon-breakfast"></i></li>
-                                        <li><i class="flaticon-towel"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="col col-md-5 text-end">
-                                    <div class="permalink"><a href="room-details.html">Details <i
-                                                class="ti-arrow-right"></i></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        @endforeach
+                    @endif
+                @endforeach
+
             </div>
         </div>
     </section>
