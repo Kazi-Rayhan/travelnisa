@@ -5,8 +5,9 @@
 @endpush
 @section('content')
     @php
-        $images = json_decode($hotel['images'], true);
+        $images = is_array($hotel['images']) ? $hotel['images'] : json_decode($hotel['images'], true);
     @endphp
+
     <!-- Room Page Slider -->
     <header class="header slider">
         <div class="owl-carousel owl-theme">
@@ -160,7 +161,7 @@
                     <div class="owl-carousel owl-theme">
                         @foreach ($similar_rooms as $room)
                             @php
-                                $images = json_decode($room['images'], true);
+                                $images = is_array($hotel['images']) ? $hotel['images'] : json_decode($hotel['images'], true);
                                 $image = $images[0] ?? null;
                             @endphp
 
