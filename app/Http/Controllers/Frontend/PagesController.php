@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Faq;
 use App\Models\Hotel;
-use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
@@ -31,7 +31,12 @@ class PagesController extends Controller
             }
         }
 
+        return view('frontend.home_page', compact('groupHotels', ));
+    }
 
-        return view('frontend.home_page', compact('groupHotels',));
+    public function faqsPage()
+    {
+        $faqs = Faq::orderBy('order', 'asc')->latest('id')->get();
+        return view('frontend.faq_page', compact('faqs'));
     }
 }

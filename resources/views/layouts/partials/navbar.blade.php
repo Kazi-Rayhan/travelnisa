@@ -39,7 +39,7 @@
                         <li><a href="team.html" class="dropdown-item"><span>Team</span></a></li>
                         <li><a href="pricing.html" class="dropdown-item"><span>Pricing</span></a></li>
                         <li><a href="careers.html" class="dropdown-item"><span>Careers</span></a></li>
-                        <li><a href="faq.html" class="dropdown-item"><span>F.A.Qs</span></a></li>
+                        <li><a href="{{ route('faq_page') }}" class="dropdown-item"><span>F.A.Qs</span></a></li>
                         <li class="dropdown-submenu dropdown">
                             <a class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" aria-expanded="false" href="#"><span>Other Pages <i
