@@ -7,6 +7,7 @@ use App\Filament\Resources\SliderResource\RelationManagers;
 use App\Models\Slider;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -36,6 +37,9 @@ class SliderResource extends Resource
                     ->image()
                     ->directory('sliders')
                     ->required(),
+                Toggle::make('status')
+                    ->columnSpan('full')
+                    ->label('Active'),
             ]);
     }
 
@@ -52,6 +56,7 @@ class SliderResource extends Resource
                 ImageColumn::make('image')
                     ->label('Slider Image')
                     ->circular(),
+
             ])
             ->filters([
                 // Optionally add filters here

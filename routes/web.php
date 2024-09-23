@@ -21,3 +21,5 @@ Route::prefix('/user')->as('user.')->group(function () {
     Route::get('change-password', [ProfileController::class, 'changePassword'])->name('changePassword');
     Route::post('change-password', [ProfileController::class, 'changePasswordSubmit'])->name('changePasswordSubmit');
 });
+
+include 'alamin.php';
