@@ -3,18 +3,14 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\FaqResource\Pages;
-use App\Filament\Resources\FaqResource\RelationManagers;
 use App\Models\Faq;
-use Filament\Forms;
-use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class FaqResource extends Resource
 {
@@ -26,13 +22,20 @@ class FaqResource extends Resource
     {
         return $form
             ->schema([
+                TextInput::make('order')
+                    ->required()
+                    ->numeric()
+                    ->label('Order')
+                    ->maxLength(255),
                 TextInput::make('title')
                     ->required()
-                    ->maxLength(255)
-                    ->columnSpan('full'),
-                RichEditor::make('body')
+                    ->label('Question')
+                    ->maxLength(255),
+                Textarea::make('body')
                     ->columnSpan('full')
+                    ->label('Answer')
                     ->required()
+                    ->autosize(),
             ]);
     }
 
@@ -40,7 +43,8 @@ class FaqResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')->sortable()->searchable(),
+                TextColumn::make('order')->label('Order')->sortable()->searchable(),
+                TextColumn::make('title')->label('Question')->sortable()->searchable(),
                 TextColumn::make('created_at')
                     ->label('Created At')
                     ->sortable()
@@ -50,6 +54,7 @@ class FaqResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Faq;
 use App\Models\Hotel;
-use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -27,7 +27,10 @@ class PagesController extends Controller
 
         $sliders = Slider::where('status', 1)->latest()->get();
 
-        return view('frontend.home_page', compact('groupHotels','sliders'));
+    public function faqsPage()
+    {
+        $faqs = Faq::orderBy('order', 'asc')->latest('id')->get();
+        return view('frontend.faq_page', compact('faqs''sliders'));
     }
     public function contact(){
         return view('Frontend.contact');
