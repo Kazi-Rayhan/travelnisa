@@ -9,4 +9,10 @@ class Hotel extends Model
 {
     use HasFactory;
     protected $guarded = ['id'] ;
+
+    protected $casts = [
+        'images' => 'array',
+        'attributes' => 'array', 
+    ];
+
 }
