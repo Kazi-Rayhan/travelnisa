@@ -82,7 +82,7 @@ class PostCatResource extends Resource
             'index' => Pages\ListPostCats::route('/'),
             'create' => Pages\CreatePostCat::route('/create'),
             'edit' => Pages\EditPostCat::route('/{record}/edit'),
-            'view' => Pages\ViewPostCat::route('/{record}'), // Optional view page
+            'view' => Pages\ViewPostCat::route('/{record}'),
         ];
     }
 }

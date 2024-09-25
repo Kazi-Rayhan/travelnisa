@@ -65,7 +65,6 @@ class SliderResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),   // View action
                 Tables\Actions\EditAction::make(),   // Edit action
-                Tables\Actions\DeleteAction::make(), // Delete action
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
