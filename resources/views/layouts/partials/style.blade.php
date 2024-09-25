@@ -1,4 +1,7 @@
-<link rel="shortcut icon" href="{{ asset('assets/frontend') }}/img/favicon.png" />
+@php
+$setting=App\Models\Setting::where('id',1)->first();
+@endphp
+<link rel="shortcut icon" href="{{ Storage::url($setting->site_favicon) }}" />
 <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Gilda+Display&display=swap">
 <link rel="stylesheet" href="{{ asset('assets/frontend') }}/css/plugins.css" />

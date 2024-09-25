@@ -5,7 +5,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>@yield('title')</title>
+
+    @php
+        $setting = App\Models\Setting::where('id', 1)->first();
+        $siteName = $setting ? $setting->site_name : 'Travelnisa';
+        $pageTitle = trim($__env->yieldContent('title'));
+    @endphp
+    <title>{{ $siteName }}@if ($pageTitle)
+            | {{ $pageTitle }}
+        @endif
+    </title>
+
     <link rel="shortcut icon" href="{{ asset('assets/frontend') }}/img/favicon.png" />
     @include('layouts.partials.style')
 </head>

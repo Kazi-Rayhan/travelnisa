@@ -79,10 +79,10 @@ class HotelResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('created_at')->label('Created At')->sortable()->dateTime('M d, Y'),
                 TextColumn::make('name')->sortable()->searchable()->label('Hotel Name'),
                 TextColumn::make('country')->sortable()->searchable()->label('Country'),
                 TextColumn::make('city')->sortable()->searchable()->label('City'),
+                TextColumn::make('created_at')->label('Created At')->sortable()->dateTime('M d, Y'),
             ])
             ->filters([
                 //

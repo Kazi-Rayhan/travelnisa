@@ -4,46 +4,53 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="footer-column footer-about">
+                        @php
+                            $setting=App\Models\Setting::where('id',1)->first();
+                        @endphp
                         <h3 class="footer-title">About Hotel</h3>
-                        <p class="footer-about-text">Welcome to the best five-star deluxe hotel in New York. Hotel
-                            elementum sesue the aucan vestibulum aliquam justo in sapien rutrum volutpat.</p>
-
-                        <div class="footer-language"> <i class="lni ti-world"></i>
-                            <select>
-                                <option value="http://duruthemes.com/">English</option>
-                                <option value="http://duruthemes.com/">German</option>
-                            </select>
-                        </div>
+                        <p class="footer-about-text">{{ $setting->site_description }}</p>
                     </div>
                 </div>
                 <div class="col-md-3 offset-md-1">
                     <div class="footer-column footer-explore clearfix">
                         <h3 class="footer-title">Explore</h3>
                         <ul class="footer-explore-list list-unstyled">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Rooms & Suites</a></li>
-                            <li><a href="#">Restaurant</a></li>
-                            <li><a href="#">Spa & Wellness</a></li>
-                            <li><a href="#">About Hotel</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="{{ route('home_page') }}">Home</a></li>
+                            <li><a href="#">Hotels</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="{{ route('contact') }}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="footer-column footer-contact">
                         <h3 class="footer-title">Contact</h3>
-                        <p class="footer-contact-text">1616 Broadway NY, New York 10001<br>United States of America
+                        <p class="footer-contact-text">{{ $setting->site_address }}
                         </p>
                         <div class="footer-contact-info">
-                            <p class="footer-contact-phone"><span class="flaticon-call"></span> 855 100 4444</p>
-                            <p class="footer-contact-mail">info@luxuryhotel.com</p>
+                            @if ($setting->phone)
+                            <p class="footer-contact-phone"><span class="flaticon-call"></span>{{ $setting->phone }}</p>
+                            @endif
+                            @if ($setting->email)
+                            <p class="footer-contact-mail"><a href="mailto:{{ $setting->email }}">{{ $setting->email }}</a></p>
+                            @endif
                         </div>
                         <div class="footer-about-social-list">
-                            <a href="#"><i class="ti-instagram"></i></a>
-                            <a href="#"><i class="ti-twitter"></i></a>
-                            <a href="#"><i class="ti-youtube"></i></a>
-                            <a href="#"><i class="ti-facebook"></i></a>
-                            <a href="#"><i class="ti-pinterest"></i></a>
+                            @if ($setting->instagram_link)
+                            <a href="{{ $setting->instagram_link }}"><i class="ti-instagram"></i></a>
+                            @endif
+                            @if ($setting->twitter_link)
+                            <a href="{{ $setting->twitter_link }}"><i class="ti-twitter"></i></a>
+                            @endif
+                            @if ($setting->youtube_link)
+                        <a href="{{ $setting->youtube_link }}"><i class="ti-youtube"></i></a>
+                            @endif
+                            @if ($setting->facebook_link)
+                            <a href="{{ $setting->facebook_link }}"><i class="ti-facebook"></i></a
+                            @endif
+
+                            {{ $setting }}
                         </div>
                     </div>
                 </div>
@@ -55,7 +62,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="footer-bottom-inner">
-                        <p class="footer-bottom-copy-right">© Copyright 2024 by <a href="#">DuruThemes.com</a></p>
+                        <p class="footer-bottom-copy-right">© Copyright {{ date('Y') }} by <a href="javascript::void(0)">{{ $setting->site_name }}</a></p>
                     </div>
                 </div>
             </div>

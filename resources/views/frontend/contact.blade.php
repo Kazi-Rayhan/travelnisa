@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title')
+    Contact
 @endsection
 @push('front_style')
 @endpush

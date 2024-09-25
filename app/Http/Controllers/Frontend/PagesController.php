@@ -60,7 +60,7 @@ class PagesController extends Controller
             'l_name' => $request->l_name,
             'email' => $request->email,
             'message' => $request->message,
-        ]; 
+        ];
 
         Mail::to('your-email@example.com')->send(new ContactMail($data));
 
