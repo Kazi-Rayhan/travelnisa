@@ -27,14 +27,13 @@
             <!-- project content -->
             <div class="row">
                 <div class="col-md-12">
-                    <span>
+                    {{-- <span>
                         <i class="star-rating"></i>
                         <i class="star-rating"></i>
                         <i class="star-rating"></i>
                         <i class="star-rating"></i>
                         <i class="star-rating"></i>
-                        {{-- <span>( {{ $hotel->ratting ?? '' }} )</span> --}}
-                    </span>
+                    </span> --}}
                     {{-- @dd($hotel) --}}
                     <div class="section-subtitle">Luxury Hotel</div>
                     <div class="section-title">{{ $hotel->name }}</div>
@@ -148,7 +147,7 @@
         </div>
     </section>
     <!-- Similiar Room -->
-    <section class="rooms1 section-padding bg-darkblack">
+    {{-- <section class="rooms1 section-padding bg-darkblack">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -369,5 +368,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection

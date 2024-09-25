@@ -43,7 +43,7 @@
         </div>
     </header>
     <!-- Booking Search -->
-    <div class="booking-wrapper">
+    {{-- <div class="booking-wrapper">
         <div class="container">
             <div class="booking-inner clearfix">
                 <form action="rooms.html" class="form1 clearfix">
@@ -109,7 +109,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- About -->
     <section class="about section-padding">
         <div class="container">
@@ -157,9 +157,9 @@
                 </div>
             </div>
             <div class="row">
-                @foreach ($groupHotels as $groups)
-                    @if (count($groups) >= 3)
-                        @foreach ($groups as $hotel)
+                {{-- @foreach ($groupHotels as $groups) --}}
+                    {{-- @if (count($groups) >= 3) --}}
+                        @foreach ($hotels as $hotel)
                             @php
                                 $images = is_array($hotel['images'])
                                     ? $hotel['images']
@@ -196,8 +196,8 @@
                                 </div>
                             </div>
                         @endforeach
-                    @else
-                        @foreach ($groups as $hotel)
+                    {{-- @else --}}
+                        {{-- @foreach ($groups as $hotel)
                             <div class="col-md-6">
                                 <div class="item">
                                     <div class="position-re o-hidden"> <img src="{{ $image }}" alt="">
@@ -228,13 +228,13 @@
                             </div>
                         @endforeach
                     @endif
-                @endforeach
+                @endforeach --}}
 
             </div>
         </div>
     </section>
     <!-- Pricing -->
-    <section class="pricing section-padding">
+    {{-- <section class="pricing section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -305,7 +305,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Promo Video -->
     <section class="video-wrapper video section-padding bg-img bg-fixed" data-overlay-dark="3"
         data-background="{{ asset('assets/frontend/img/slider/2.jpg') }}">
@@ -393,7 +393,7 @@
             </div>
         </div>
     </section>
-    <!-- Testiominals -->
+    {{-- <!-- Testiominals -->
     <section class="testimonials">
         <div class="background bg-img bg-fixed section-padding pb-0"
             data-background="{{ asset('assets/frontend/img/slider/2.jpg') }}" data-overlay-dark="3">
@@ -784,7 +784,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection
 @push('front_script')
 @endpush
