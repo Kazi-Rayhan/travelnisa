@@ -6,6 +6,8 @@ use App\Filament\Resources\SettingResource\Pages;
 use App\Filament\Resources\SettingResource\RelationManagers;
 use App\Models\Setting;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -27,27 +29,35 @@ class SettingResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('display_name')
-                    ->required()
-                    ->maxLength(255),
+                Grid::make(3)
+                    ->schema([
 
-                TextInput::make('key')
-                    ->required()
-                    ->maxLength(255)
-                    ->unique(ignorable: fn($record) => $record),
+                        TextInput::make('display_name')
+                            ->required()
+                            ->maxLength(255),
+
+                        TextInput::make('key')
+                            ->required()
+                            ->maxLength(255)
+                            ->unique(ignorable: fn($record) => $record),
+                        Select::make('type')
+                            ->options([
+                                'text' => 'Text',
+                                'image' => 'Image',
+                            ])
+                            ->default('text')
+                            ->required(),
+                    ]),
 
                 Textarea::make('value')
-                    ->required()
+                    ->columnSpanFull()
                     ->maxLength(65535),
 
-                Select::make('type')
-                    ->options([
-                        'text' => 'Text',
-                        'textarea' => 'Textarea',
-                        'number' => 'Number',
-                    ])
-                    ->default('text')
-                    ->required(),
+                FileUpload::make('image')
+                    ->directory('setting')
+                    ->visibility('public')
+                    ->columnSpanFull()
+                    ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png']),
             ]);
     }
 
@@ -59,9 +69,10 @@ class SettingResource extends Resource
                 TextColumn::make('key')->sortable()->searchable(),
                 TextColumn::make('type')->sortable(),
                 TextColumn::make('created_at')
-                ->label('Created At')
-                ->sortable()
-                ->dateTime('M d, Y'),
+                    ->label('Created At')
+                    ->sortable()
+                    ->dateTime('M d, Y'),
+                    
             ])
             ->filters([
                 //

@@ -1,12 +1,12 @@
 @php
-$setting=App\Models\Setting::where('id',1)->first();
+    $setting = App\Models\Setting::where('id', 1)->first();
 @endphp
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <!-- Logo -->
         <div class="logo-wrapper">
             <a class="logo" href="{{ route('home_page') }}">
-                <img src="{{ Storage::url($setting->site_logo) }}" class="logo-img" alt="">
+                <img src="{{ Settings::setting('site_logo') }}" class="logo-img" alt="">
             </a>
         </div>
         <!-- Button -->

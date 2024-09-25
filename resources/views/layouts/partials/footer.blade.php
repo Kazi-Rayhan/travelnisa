@@ -5,10 +5,10 @@
                 <div class="col-md-4">
                     <div class="footer-column footer-about">
                         @php
-                            $setting=App\Models\Setting::where('id',1)->first();
+                            $setting = App\Models\Setting::where('id', 1)->first();
                         @endphp
                         <h3 class="footer-title">About Hotel</h3>
-                        <p class="footer-about-text">{{ $setting->site_description }}</p>
+                        <p class="footer-about-text">{{ Settings::setting('site_description') }}</p>
                     </div>
                 </div>
                 <div class="col-md-3 offset-md-1">
@@ -26,43 +26,42 @@
                 <div class="col-md-4">
                     <div class="footer-column footer-contact">
                         <h3 class="footer-title">Contact</h3>
-                        <p class="footer-contact-text">{{ $setting->site_address }}
+                        <p class="footer-contact-text">{{ Settings::setting('site_address') }}
                         </p>
                         <div class="footer-contact-info">
-                            @if ($setting->phone)
-                            <p class="footer-contact-phone"><span class="flaticon-call"></span>{{ $setting->phone }}</p>
-                            @endif
-                            @if ($setting->email)
-                            <p class="footer-contact-mail"><a href="mailto:{{ $setting->email }}">{{ $setting->email }}</a></p>
-                            @endif
+                            <p class="footer-contact-phone"><span
+                                    class="flaticon-call">{{ Settings::setting('phone') }}</span></p>
+
+                            <p class="footer-contact-mail"><a
+                                    href="mailto:{{ Settings::setting('email') }}">{{ Settings::setting('email') }}</a>
+                            </p>
+
                         </div>
                         <div class="footer-about-social-list">
-                            @if ($setting->instagram_link)
-                            <a href="{{ $setting->instagram_link }}"><i class="ti-instagram"></i></a>
-                            @endif
-                            @if ($setting->twitter_link)
-                            <a href="{{ $setting->twitter_link }}"><i class="ti-twitter"></i></a>
-                            @endif
-                            @if ($setting->youtube_link)
-                        <a href="{{ $setting->youtube_link }}"><i class="ti-youtube"></i></a>
-                            @endif
-                            @if ($setting->facebook_link)
-                            <a href="{{ $setting->facebook_link }}"><i class="ti-facebook"></i></a
-                            @endif
 
-                            {{ $setting }}
+                            <a href="{{ Settings::setting('instagram') }}"><i class="ti-instagram"></i></a>
+
+
+                            <a href="{{ Settings::setting('twitter') }}"><i class="ti-twitter"></i></a>
+
+
+                            <a href="{{ Settings::setting('youtube') }}"><i class="ti-youtube"></i></a>
+
+
+                            <a href="{{ Settings::setting('facebook') }}"><i class="ti-facebook"></i></a </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="footer-bottom-inner">
-                        <p class="footer-bottom-copy-right">© Copyright {{ date('Y') }} by <a href="javascript::void(0)">{{ $setting->site_name }}</a></p>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-bottom-inner">
+                            <p class="footer-bottom-copy-right">© Copyright {{ date('Y') }} by <a
+                                    href="javascript::void(0)">{{ Settings::setting('site_name') }}</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
