@@ -16,7 +16,7 @@
                             <li><a href="#">Hotels</a></li>
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">About</a></li>
-                            <li><a href="{{ route('contact') }}">Contact</a></li>
+                            <li><a href="{{ route('contact_page') }}">Contact</a></li>
                         </ul>
                     </div>
                 </div>

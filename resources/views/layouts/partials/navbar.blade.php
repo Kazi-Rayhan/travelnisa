@@ -17,7 +17,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">Hotels</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('faq_page') }}">F.A.Qs</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('contact_page') }}">Contact</a></li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 @if (Route::has('login'))
