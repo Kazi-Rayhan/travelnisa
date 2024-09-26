@@ -4,11 +4,8 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="footer-column footer-about">
-                        @php
-                            $setting = App\Models\Setting::where('id', 1)->first();
-                        @endphp
                         <h3 class="footer-title">About Hotel</h3>
-                        <p class="footer-about-text">{{ Settings::setting('site_description') }}</p>
+                        <p class="footer-about-text">{{ Settings::setting('description') }}</p>
                     </div>
                 </div>
                 <div class="col-md-3 offset-md-1">

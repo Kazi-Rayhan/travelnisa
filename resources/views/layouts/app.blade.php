@@ -22,7 +22,7 @@
 
 <body>
     <!-- Preloader -->
-    {{-- @include('layouts.partials.preloader') --}}
+    @include('layouts.partials.preloader')
     <!-- Progress scroll totop -->
     @include('layouts.partials.progress_scroll_to_top')
     <!-- Navbar -->

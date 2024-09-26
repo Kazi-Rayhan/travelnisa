@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
+use App\Mail\ContactMail;
 use App\Models\Faq;
 use App\Models\Hotel;
 use App\Models\Slider;
-use App\Mail\ContactMail;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller
 {
@@ -40,11 +39,11 @@ class PagesController extends Controller
         return view('frontend.faq_page', compact('faqs'));
     }
 
-
-    public function contact()
+    public function contactPage()
     {
-        return view('Frontend.contact');
+        return view('frontend.contact');
     }
+
     public function contact_store(Request $request)
     {
 

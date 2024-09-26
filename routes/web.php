@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/')->group(function () {
     Route::get('', [PagesController::class, 'homePage'])->name('home_page');
     Route::get('faqs', [PagesController::class, 'faqsPage'])->name('faq_page');
-    Route::get('/{hotel}', [HotelController::class, 'show'])->name('single_hotel');
+    Route::get('detail/{hotel}', [HotelController::class, 'show'])->name('single_hotel');
+    Route::get('contact', [PagesController::class, 'contactPage'])->name('contact_page');
+    Route::post('contact-store', [PagesController::class, 'contact_store'])->name('contact_store');
 });
 
 Auth::routes();

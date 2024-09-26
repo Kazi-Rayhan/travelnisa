@@ -7,20 +7,13 @@
     <!-- Slider -->
     <header class="header slider-fade">
         <div class="owl-carousel owl-theme">
-            @foreach ($sliders as  $key => $slider)
+            @foreach ($sliders as $key => $slider)
                 <div class="text-center item bg-img" data-overlay-dark="{{ $key }}"
                     data-background="{{ Storage::url($slider->image) }}">
                     <div class="v-middle caption">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-10 offset-md-1">
-                                    <span>
-                                        <i class="star-rating"></i>
-                                        <i class="star-rating"></i>
-                                        <i class="star-rating"></i>
-                                        <i class="star-rating"></i>
-                                        <i class="star-rating"></i>
-                                    </span>
                                     <h4>{{ $slider->title }}</h4>
                                     <h1>{{ $slider->heading }}</h1>
                                     <div class="butn-light mt-30 mb-30"> <a href="#" data-scroll-nav="1"><span>Rooms &
@@ -32,15 +25,7 @@
                 </div>
             @endforeach
         </div>
-        <!-- slider reservation -->
-        <div class="reservation">
-            <a href="tel:8551004444">
-                <div class="icon d-flex justify-content-center align-items-center">
-                    <i class="flaticon-call"></i>
-                </div>
-                <div class="call"><span>855 100 4444</span> <br>Reservation</div>
-            </a>
-        </div>
+
     </header>
     <!-- Booking Search -->
     {{-- <div class="booking-wrapper">
@@ -158,46 +143,43 @@
             </div>
             <div class="row">
                 {{-- @foreach ($groupHotels as $groups) --}}
-                    {{-- @if (count($groups) >= 3) --}}
-                        @foreach ($hotels as $hotel)
-                            @php
-                                $images = is_array($hotel['images'])
-                                    ? $hotel['images']
-                                    : json_decode($hotel['images'], true);
-                                $image = $images[0] ?? null;
-                            @endphp
-                            <div class="col-md-4">
-                                <div class="item">
-                                    <div class="position-re o-hidden"> <img src="{{ $image }}" alt="">
+                {{-- @if (count($groups) >= 3) --}}
+                @foreach ($hotels as $hotel)
+                    @php
+                        $images = is_array($hotel['images']) ? $hotel['images'] : json_decode($hotel['images'], true);
+                        $image = $images[0] ?? null;
+                    @endphp
+                    <div class="col-md-4">
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="{{ $image }}" alt="">
+                            </div>
+                            <span class="category"><a href="#">Book</a></span>
+                            <div class="con">
+                                <h6><a href="{{ route('single_hotel', $hotel['id']) }}">150$ / Night</a></h6>
+                                <h5><a href="{{ route('single_hotel', $hotel['id']) }}">{{ $hotel['name'] }}</a>
+                                </h5>
+                                <div class="line"></div>
+                                {{-- @dd($hotel) --}}
+                                <div class="row facilities">
+                                    <div class="col col-md-7">
+                                        <ul>
+                                            <li><i class="flaticon-bed"></i></li>
+                                            <li><i class="flaticon-bath"></i></li>
+                                            <li><i class="flaticon-breakfast"></i></li>
+                                            <li><i class="flaticon-towel"></i></li>
+                                        </ul>
                                     </div>
-                                    <span class="category"><a href="#">Book</a></span>
-                                    <div class="con">
-                                        <h6><a href="{{ route('single_hotel', $hotel['id']) }}">150$ / Night</a></h6>
-                                        <h5><a href="{{ route('single_hotel', $hotel['id']) }}">{{ $hotel['name'] }}</a>
-                                        </h5>
-                                        <div class="line"></div>
-                                        {{-- @dd($hotel) --}}
-                                        <div class="row facilities">
-                                            <div class="col col-md-7">
-                                                <ul>
-                                                    <li><i class="flaticon-bed"></i></li>
-                                                    <li><i class="flaticon-bath"></i></li>
-                                                    <li><i class="flaticon-breakfast"></i></li>
-                                                    <li><i class="flaticon-towel"></i></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col col-md-5 text-end">
-                                                <div class="permalink"><a
-                                                        href="{{ route('single_hotel', $hotel['id']) }}">Details <i
-                                                            class="ti-arrow-right"></i></a></div>
-                                            </div>
-                                        </div>
+                                    <div class="col col-md-5 text-end">
+                                        <div class="permalink"><a href="{{ route('single_hotel', $hotel['id']) }}">Details
+                                                <i class="ti-arrow-right"></i></a></div>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-                    {{-- @else --}}
-                        {{-- @foreach ($groups as $hotel)
+                        </div>
+                    </div>
+                @endforeach
+                {{-- @else --}}
+                {{-- @foreach ($groups as $hotel)
                             <div class="col-md-6">
                                 <div class="item">
                                     <div class="position-re o-hidden"> <img src="{{ $image }}" alt="">
