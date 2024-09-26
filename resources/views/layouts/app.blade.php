@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     @php
-        $setting = App\Models\Setting::where('id', 1)->first();
-        $siteName = $setting ? $setting->site_name : 'Travelnisa';
+        $setting = Settings::setting('site_name');
+        $siteName = $setting ? $setting : 'Travelnisa';
         $pageTitle = trim($__env->yieldContent('title'));
     @endphp
     <title>{{ $siteName }}@if ($pageTitle)
