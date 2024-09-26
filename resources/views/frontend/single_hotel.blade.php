@@ -13,7 +13,7 @@
         <div class="owl-carousel owl-theme">
             @foreach ($images as $key => $image)
                 <div class="text-center item bg-img" data-overlay-dark="{{ $key }}"
-                    data-background="{{ $image }}"></div>
+                    data-background="{{ Storage::url($image) }}"></div>
             @endforeach
         </div>
         <!-- arrow down -->
@@ -22,7 +22,7 @@
         </div>
     </header>
     <!-- Room Content -->
-    <section class="rooms-page section-padding" data-scroll-index="1">
+    <section class="rooms-page section-padding bg-darkblack" data-scroll-index="1">
         <div class="container">
             <!-- project content -->
             <div class="row">

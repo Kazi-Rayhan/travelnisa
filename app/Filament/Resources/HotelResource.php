@@ -22,7 +22,6 @@ class HotelResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
 
-
     public static function form(Form $form): Form
     {
         return $form

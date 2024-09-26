@@ -151,7 +151,7 @@
                     @endphp
                     <div class="col-md-4">
                         <div class="item">
-                            <div class="position-re o-hidden"> <img src="{{ $image }}" alt="">
+                            <div class="position-re o-hidden"> <img src="{{ Storage::url($image) }}" alt="">
                             </div>
                             <span class="category"><a href="#">Book</a></span>
                             <div class="con">

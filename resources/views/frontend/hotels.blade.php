@@ -45,7 +45,7 @@
                     <div class="col-md-{{ $index < $triplePairIndex ? '4' : '6' }}">
                         <div class="item">
                             {{-- @dd($hotel) --}}
-                            <div class="position-re o-hidden"> <img src="{{ $image }}" alt=""> </div>
+                            <div class="position-re o-hidden"> <img src="{{ Storage::url($image) }}" alt=""> </div>
                             <span class="category"><a href="">Book</a></span>
                             <div class="con">
                                 <h6><a href="{{ route('single_hotel', $hotel) }}">150$ / Night</a></h6>
