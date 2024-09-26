@@ -315,7 +315,7 @@
         </div>
     </section>
     <!-- Facilties -->
-    <section class="facilties section-padding">
+    <section class="facilties section-padding bg-darkblack">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
