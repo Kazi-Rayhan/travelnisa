@@ -14,8 +14,9 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="{{ route('home_page') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('hotels') }}">Hotels</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('abouts') }}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('hotels') }}">Hotels</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Articles</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('faq_page') }}">F.A.Qs</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('contact_page') }}">Contact</a></li>
             </ul>
