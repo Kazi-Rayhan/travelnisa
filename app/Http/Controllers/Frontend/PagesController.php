@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Mail\ContactMail;
 use App\Models\Faq;
 use App\Models\Hotel;
+use App\Models\HotelFacility;
+use App\Models\Page;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -29,8 +31,9 @@ class PagesController extends Controller
         // }
 
         $sliders = Slider::where('status', 1)->latest()->get();
+        $facilities = HotelFacility::latest()->get();
 
-        return view('frontend.home_page', compact('hotels', 'sliders'));
+        return view('frontend.home_page', compact('hotels', 'sliders', 'facilities'));
     }
 
     public function faqsPage()
@@ -66,14 +69,16 @@ class PagesController extends Controller
         return back()->with('success', 'Your message has been sent successfully.');
     }
 
-
-    public function hotels(){
+    public function hotels()
+    {
         $hotels = Hotel::latest()->get();
 
         return view('frontend.hotels', compact('hotels'));
     }
-    public function about(){
+    public function about()
+    {
 
-        return view('frontend.about');
+        $about = Page::where('key', 'about')->first();
+        return view('frontend.about', compact('about'));
     }
 }

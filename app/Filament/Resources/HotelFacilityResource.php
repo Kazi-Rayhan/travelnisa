@@ -35,11 +35,11 @@ class HotelFacilityResource extends Resource
                             ->required()
                             ->maxLength(255)
                             ->label('Heading'),
-                        FileUpload::make('image')
+                        TextInput::make('icon')
                             ->required()
-                            ->directory('hotel facilities')
-                            ->visibility('public')
-                            ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png', 'image/svg'])
+                            ->maxLength(255)
+                            ->label('Icon'),
+
                     ]),
                 Textarea::make('description')
                     ->columnSpanFull()
@@ -56,17 +56,17 @@ class HotelFacilityResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->label('Heading'),
-                TextColumn::make('description')
-                    ->limit(50)
+                    TextColumn::make('description')
+                    ->limit(100)
                     ->label('Description'),
-                ImageColumn::make('image')
-                    ->label('Image'),
+
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

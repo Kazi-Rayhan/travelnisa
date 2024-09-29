@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title')
+Detail
 @endsection
 @push('front_style')
 @endpush
