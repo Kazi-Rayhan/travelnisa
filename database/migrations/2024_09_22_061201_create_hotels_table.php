@@ -21,6 +21,11 @@ return new class extends Migration
             $table->string('summary');
             $table->text('description');
             $table->json('attributes');
+            $table->text('address')->nullable();
+            $table->string('property_type');
+            $table->string('hotel_class');
+            $table->string('hotel_style');
+            $table->string('affiliate_link')->nullable();
             $table->timestamps();
         });
     }

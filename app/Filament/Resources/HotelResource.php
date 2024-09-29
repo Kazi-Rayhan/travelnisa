@@ -5,11 +5,12 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\HotelResource\Pages;
 use App\Models\Hotel;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Grid;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -51,23 +52,79 @@ class HotelResource extends Resource
                             ->label('Attributes')
                             ->placeholder('New Attributes')
                             ->required(),
-
                     ]),
-
-                FileUpload::make('images')
-                    ->required()
-                    ->directory('hotel')
-                    ->multiple()
-                    ->visibility('public')
-                    ->columnSpanFull()
-                    ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png']),
-                Textarea::make('summary')
-                    ->required()
-                    ->rows(6)
-                    ->autosize()
-                    ->columnSpanFull()
-                    ->maxLength(255),
-
+                Grid::make(2)
+                    ->schema([
+                        Textarea::make('summary')
+                            ->required()
+                            ->rows(3)
+                            ->autosize()
+                            ->maxLength(255),
+                        Textarea::make('address')
+                            ->required()
+                            ->rows(3)
+                            ->autosize()
+                            ->maxLength(255),
+                    ]),
+                Grid::make(3)
+                    ->schema([
+                        Select::make('property_type')
+                            ->label('Property Type')
+                            ->options([
+                                'Pensions' => 'Pensions',
+                                'B&Bs & Inns' => 'B&Bs & Inns',
+                                'Hotels' => 'Hotels',
+                                'Resorts' => 'Resorts',
+                                'All-inclusives' => 'All-inclusives',
+                                'Specialty lodgings' => 'Specialty lodgings',
+                                'Lodges' => 'Lodges',
+                                'Villa' => 'Villa',
+                                'Hostels' => 'Hostels',
+                                'Condos' => 'Condos',
+                                'Cottage' => 'Cottage',
+                                'Campgrounds' => 'Campgrounds',
+                                'Motels' => 'Motels',
+                            ])
+                            ->required()
+                            ->searchable(),
+                        Select::make('hotel_class')
+                            ->label('Hotel Class')
+                            ->options([
+                                '5 Star' => '5 Star',
+                                '4 Star' => '4 Star',
+                                '3 Star' => '3 Star',
+                                '2 Star' => '2 Star',
+                            ])
+                            ->required()
+                            ->searchable(),
+                        Select::make('hotel_style')
+                            ->label('Hotel Style')
+                            ->options([
+                                'Budget' => 'Budget',
+                                'Mid-range' => 'Mid-range',
+                                'Luxury' => 'Luxury',
+                                'Family-friend' => 'Family-friend',
+                                'Business' => 'Business',
+                                'Romantic' => 'Romantic',
+                                'Modern' => 'Modern',
+                            ])
+                            ->required()
+                            ->searchable(),
+                    ]),
+                Grid::make(2)
+                    ->schema([
+                        TextInput::make('affiliate_link')
+                            ->required()
+                            ->maxLength(25)
+                            ->label('Affiliate Link')
+                            ->reactive(),
+                        FileUpload::make('images')
+                            ->required()
+                            ->directory('hotel')
+                            ->multiple()
+                            ->visibility('public')
+                            ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png']),
+                    ]),
                 RichEditor::make(name: 'description')
                     ->required()
                     ->columnSpanFull(),
