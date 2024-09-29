@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('title')
-Hotels
 @endsection
 @push('front_style')
 @endpush
@@ -18,7 +17,7 @@ Hotels
                         <i class="star-rating"></i>
                         <i class="star-rating"></i>
                     </span>
-                    <h5>{{ Setting:: }}</h5>
+                    <h5>The Cappa Luxury Hotels</h5>
                     <h1>Hotels</h1>
                 </div>
             </div>
