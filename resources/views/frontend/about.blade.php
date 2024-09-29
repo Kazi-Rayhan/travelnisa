@@ -23,7 +23,8 @@
             <div class="row">
                 <div class="col-md-6 mb-30 animate-box" data-animate-effect="fadeInUp">
                     <div class="section-subtitle">{{ Settings::setting('site_name') }}</div>
-                    <p> {!! $about->description !!}</p>
+                    <p>{!! $about->description ?? 'No description available.' !!}</p>
+
                 </div>
                 @if (!empty($about->images))
                     @php
