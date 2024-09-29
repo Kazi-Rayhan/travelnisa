@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-12 caption mt-90">
                     <h5>{{ Settings::setting('site_name') }}</h5>
-                    <h1>{{ $about->page_title }}</h1>
+                    <h1>{{ $about->page_title ?? '' }}</h1>
                 </div>
             </div>
         </div>
