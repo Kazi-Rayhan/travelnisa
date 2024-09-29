@@ -77,8 +77,12 @@ class PagesController extends Controller
     }
     public function about()
     {
-
         $about = Page::where('key', 'about')->first();
         return view('frontend.about', compact('about'));
+    }
+
+    public function privacyPolicyPage(){
+        $privacy_policy = Page::where('key', 'privacy_policy')->first();
+        return view('frontend.privacy_policy',compact('privacy_policy'));
     }
 }

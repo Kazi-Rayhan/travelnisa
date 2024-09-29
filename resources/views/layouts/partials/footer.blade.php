@@ -13,9 +13,10 @@
                         <h3 class="footer-title">Explore</h3>
                         <ul class="footer-explore-list list-unstyled">
                             <li><a href="{{ route('home_page') }}">Home</a></li>
-                            <li><a href="#">Hotels</a></li>
-                            <li><a href="#">About</a></li>
+                            <li><a href="{{ route('hotels') }}">Hotels</a></li>
+                            <li><a href="{{ route('abouts') }}">About</a></li>
                             <li><a href="{{ route('contact_page') }}">Contact</a></li>
+                            <li><a href="{{ route('privacy_policy_page') }}">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>

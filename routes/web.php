@@ -13,6 +13,7 @@ Route::prefix('/')->group(function () {
     Route::get('detail/{hotel}', [HotelController::class, 'show'])->name('single_hotel');
     Route::get('contact', [PagesController::class, 'contactPage'])->name('contact_page');
     Route::post('contact-store', [PagesController::class, 'contact_store'])->name('contact_store');
+    Route::get('privacy-policy', [PagesController::class, 'privacyPolicyPage'])->name('privacy_policy_page');
 });
 
 Auth::routes();
