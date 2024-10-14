@@ -6,6 +6,12 @@
                     <div class="footer-column footer-about">
                         <h3 class="footer-title">About Hotel</h3>
                         <p class="footer-about-text">{{ Settings::setting('description') }}</p>
+                        <div class="footer-language"> <i class="lni ti-world"></i>
+                            <select onchange="location = this.value;">
+                                <option value="#0">English</option>
+                                <option value="#0">Danish</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-3 offset-md-1">
