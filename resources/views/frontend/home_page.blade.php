@@ -2,6 +2,13 @@
 @section('title')
 @endsection
 @push('front_style')
+    <style>
+        .hotelFacilityIcon {
+            width: 70px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
 @endpush
 @section('content')
     <!-- Slider -->
@@ -315,7 +322,7 @@
         </div>
     </section>
     <!-- Facilties -->
-    @if ($facilities->count() > 0)
+    @if ($hotelFacility->count() > 0)
         <section class="facilties section-padding bg-darkblack">
             <div class="container">
                 <div class="row">
@@ -325,13 +332,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach ($facilities as $facility)
+                    @foreach ($hotelFacility as $facility)
                         <div class="col-md-4">
                             <div class="single-facility animate-box" data-animate-effect="fadeInUp">
-                                <span>{!! $facility->icon !!}</span>
-                                <h5>{{ $facility->heading }}</h5>
-                                <p>{{ $facility->description }}</p>
-                                <div class="facility-shape"> <span>{!! $facility->icon !!}</span> </div>
+                                <img class="hotelFacilityIcon" src="{{ Storage::url($facility->image) }}"
+                                    alt="{{ $facility->image }}">
+                                <h5>{{ $facility->heading ?? '' }}</h5>
+                                <p>{{ $facility->description ?? '' }}</p>
+                                <div class="facility-shape"> <span class="flaticon-world"></span> </div>
                             </div>
                         </div>
                     @endforeach

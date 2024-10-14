@@ -35,9 +35,10 @@ class HotelFacilityResource extends Resource
                             ->required()
                             ->maxLength(255)
                             ->label('Heading'),
-                        TextInput::make('icon')
+                            FileUpload::make('image')
                             ->required()
-                            ->maxLength(255)
+                            ->directory('Hotel Facility')
+                            ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png', 'image/svg+xml'])
                             ->label('Icon'),
 
                     ]),
