@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <section class="contact section-padding">
+    <section class="contact section-padding bg-darkblack">
         <div class="container">
             <div class="row mb-90">
                 <div class="col-12">
