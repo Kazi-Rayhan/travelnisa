@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row mb-90">
                 <div class="col-12">
-                    <p>{!! $privacy_policy->description !!}</p>
+                    <p>{!! $privacy_policy->description ?? 'No privacy policy available.' !!}</p>
                 </div>
             </div>
         </div>
