@@ -18,7 +18,7 @@
         </div>
     </div>
     <!-- About -->
-    <section class="about section-padding hotelFacility">
+    <section class="about section-padding bg-darkblack">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 mb-30 animate-box" data-animate-effect="fadeInUp">
