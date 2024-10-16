@@ -26,4 +26,9 @@ Route::prefix('/user')->as('user.')->group(function () {
     Route::post('change-password', [ProfileController::class, 'changePasswordSubmit'])->name('changePasswordSubmit');
 });
 
+Route::get('lang/{locale}', function ($locale) {
+    session()->put('locale',$locale);
+    return redirect()->back();
+});
+
 include 'alamin.php';

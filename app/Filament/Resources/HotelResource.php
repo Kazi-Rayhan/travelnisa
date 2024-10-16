@@ -6,6 +6,7 @@ use App\Filament\Resources\HotelResource\Pages;
 use App\Models\Hotel;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
@@ -47,10 +48,9 @@ class HotelResource extends Resource
                             ->maxLength(100)
                             ->label('City')
                             ->reactive(),
-                        TagsInput::make('attributes')
-                            ->separator(',')
-                            ->label('Attributes')
-                            ->placeholder('New Attributes')
+                        Select::make('attributes')
+                            ->relationship('facilities', 'heading')
+                            ->label('Hotel Facilities')
                             ->required(),
                     ]),
                 Grid::make(2)
@@ -108,6 +108,7 @@ class HotelResource extends Resource
                                 'Romantic' => 'Romantic',
                                 'Modern' => 'Modern',
                             ])
+
                             ->required()
                             ->searchable(),
                     ]),

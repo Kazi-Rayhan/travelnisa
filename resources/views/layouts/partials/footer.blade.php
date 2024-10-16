@@ -1,3 +1,54 @@
+<style>
+    .footer-language {
+        position: relative;
+        display: inline-block;
+        font-family: Arial, sans-serif;
+    }
+
+    .dropbtn {
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 4px;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    } */
+</style>
+
 <footer class="footer">
     <div class="footer-top">
         <div class="container">
@@ -6,12 +57,19 @@
                     <div class="footer-column footer-about">
                         <h3 class="footer-title">About Hotel</h3>
                         <p class="footer-about-text">{{ Settings::setting('description') }}</p>
-                        <div class="footer-language"> <i class="lni ti-world"></i>
-                            <select onchange="location = this.value;">
-                                <option value="#0">English</option>
-                                <option value="#0">Danish</option>
-                            </select>
+
+                        <div class="footer-language">
+                            
+                            <div class="dropdown bg-darkblack" style="width: 100%">
+                                <button class="dropbtn">Language <samp><i class="lni ti-world"></i></samp></button>
+                                
+                                <div class="dropdown-content">
+                                    <a href="{{ url('lang/en') }}">English</a>
+                                    <a href="{{ url('lang/da') }}">Danish</a>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="col-md-3 offset-md-1">

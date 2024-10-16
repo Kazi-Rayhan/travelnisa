@@ -11,8 +11,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-left caption mt-90">
-                    <h5>Get in touch</h5>
-                    <h1>Contact Us</h1>
+                    <h5>{{ __('sentence.get_in_touch') }}</h5>
+                    <h1>{{ __('sentence.contact_us') }}</h1>
                 </div>
             </div>
         </div>
@@ -27,24 +27,24 @@
                     <div class="reservations mb-30">
                         <div class="icon"><span class="flaticon-call"></span></div>
                         <div class="text">
-                            <p>Reservation</p> <a href="tel:{{ Settings::setting('phone') }}">{{ Settings::setting('phone') }}</a>
+                            <p>{{ __('sentence.reservation') }}</p> <a href="tel:{{ Settings::setting('phone') }}">{{ Settings::setting('phone') }}</a>
                         </div>
                     </div>
                     <div class="reservations mb-30">
                         <div class="icon"><span class="flaticon-envelope"></span></div>
                         <div class="text">
-                            <p>Email Info</p> <a href="mailto:{{ Settings::setting('email') }}">{{ Settings::setting('email') }}</a>
+                            <p>{{ __('sentence.email _info') }}</p> <a href="mailto:{{ Settings::setting('email') }}">{{ Settings::setting('email') }}</a>
                         </div>
                     </div>
                     <div class="reservations">
                         <div class="icon"><span class="flaticon-location-pin"></span></div>
                         <div class="text">
-                            <p>Address</p> {{ Settings::setting('address') }}
+                            <p>{{ __('sentence.address') }}</p> {{ Settings::setting('address') }}
                         </div>
                     </div>
                 </div>
                 <div class="col-md-5 mb-30 offset-md-1">
-                    <h3>Get in touch</h3>
+                    <h3>{{ __('sentence.get_in_touch') }}</h3>
                     <form action="{{ route('contact_store') }}" method="POST">
                         @csrf
                         <!-- form message -->
@@ -57,19 +57,19 @@
                         <!-- form elements -->
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <input name="f_name" type="text" placeholder="Your First Name *" required>
+                                <input name="f_name" type="text" placeholder="{{ __('sentence.your_first_name') }} *" required>
                             </div>
                             <div class="col-md-6 form-group">
-                                <input name="l_name" type="text" placeholder="Your Last Name *" required>
+                                <input name="l_name" type="text" placeholder="{{ __('sentence.your_last_name') }} *" required>
                             </div>
                             <div class="col-md-12 form-group">
-                                <input name="email" type="email" placeholder="Your email *" required>
+                                <input name="email" type="email" placeholder="{{ __('sentence.your_email') }} *" required>
                             </div>
                             <div class="col-md-12 form-group">
-                                <textarea name="message" id="message" cols="30" rows="4" placeholder="Message *" required></textarea>
+                                <textarea name="message" id="message" cols="30" rows="4" placeholder="{{ __('sentence.message') }} *" required></textarea>
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class="butn-dark2"><span>Send Message</span></button>
+                                <button type="submit" class="butn-dark2"><span>{{ __('sentence.send_message') }}</span></button>
                             </div>
                         </div>
                     </form>

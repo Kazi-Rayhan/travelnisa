@@ -34,4 +34,8 @@ class Hotel extends Model
     //     throw new HttpResponseException(redirect()->to(route(request()->route()->getName(), $model)));
     // }
 
+    public function facilities()
+    {
+        return $this->belongsToMany(HotelFacility::class, 'hotel_hotel_facilitie', 'hotel_id', 'hotel_facilitie_id')->withPivot('attributes');
+    }
 }

@@ -23,8 +23,7 @@
                                 <div class="col-md-10 offset-md-1">
                                     <h4>{{ $slider->title }}</h4>
                                     <h1>{{ $slider->heading }}</h1>
-                                    <div class="butn-light mt-30 mb-30"> <a href="#" data-scroll-nav="1"><span>Rooms &
-                                                Suites</span></a> </div>
+                                    <div class="butn-light mt-30 mb-30"> <a href="#" data-scroll-nav="1"><span>{{ __('sentence.rooms_&_suites') }}</span></a> </div>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +125,7 @@
                     <div class="reservations">
                         <div class="icon"><span class="flaticon-call"></span></div>
                         <div class="text">
-                            <p>Reservation</p> <a href="tel:855-100-4444">855 100 4444</a>
+                            <p>{{ __('sentence.reservation') }}</p> <a href="tel:855-100-4444">855 100 4444</a>
                         </div>
                     </div>
                 </div>
@@ -177,7 +176,7 @@
                                         </ul>
                                     </div>
                                     <div class="col col-md-5 text-end">
-                                        <div class="permalink"><a href="{{ route('single_hotel', $hotel['id']) }}">Details
+                                        <div class="permalink"><a href="{{ route('single_hotel', $hotel['id']) }}">{{ __('sentence.details') }}
                                                 <i class="ti-arrow-right"></i></a></div>
                                     </div>
                                 </div>
@@ -321,14 +320,16 @@
             </div>
         </div>
     </section>
+
+
     <!-- Facilties -->
     @if ($hotelFacility->count() > 0)
         <section class="facilties section-padding bg-darkblack">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="section-subtitle">Our Services</div>
-                        <div class="section-title">Hotel Facilities</div>
+                        <div class="section-subtitle">{{ __('sentence.our_services') }}</div>
+                        <div class="section-title">{{ __('sentence.hotel_facilities') }}</div>
                     </div>
                 </div>
                 <div class="row">

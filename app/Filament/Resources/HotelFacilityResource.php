@@ -16,7 +16,7 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Forms\Components\Grid;
-
+use Filament\Forms\Components\Toggle;
 
 class HotelFacilityResource extends Resource
 {
@@ -35,7 +35,7 @@ class HotelFacilityResource extends Resource
                             ->required()
                             ->maxLength(255)
                             ->label('Heading'),
-                            FileUpload::make('image')
+                        FileUpload::make('image')
                             ->required()
                             ->directory('Hotel Facility')
                             ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png', 'image/svg+xml'])
@@ -46,6 +46,14 @@ class HotelFacilityResource extends Resource
                     ->columnSpanFull()
                     ->rows(6)
                     ->label('Description'),
+
+                Toggle::make('status')
+                    ->onIcon('heroicon-o-bolt')
+                    ->offIcon('heroicon-o-building-library')
+                    ->onColor('success')
+                    ->offColor('danger')
+                    ->columnSpan('full')
+                    ->label('Paid Services'),
             ]);
     }
 
@@ -57,7 +65,7 @@ class HotelFacilityResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->label('Heading'),
-                    TextColumn::make('description')
+                TextColumn::make('description')
                     ->limit(100)
                     ->label('Description'),
 
