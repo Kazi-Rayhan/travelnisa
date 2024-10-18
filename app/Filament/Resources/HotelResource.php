@@ -39,6 +39,7 @@ class HotelResource extends Resource
                                     ->maxLength(25)
                                     ->label('Affiliate Link')
                                     ->columnSpanFull()
+                                    ->url()
                                     ->reactive(),
 
                                 RichEditor::make('foodConcept')
