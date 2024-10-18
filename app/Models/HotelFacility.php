@@ -13,7 +13,7 @@ class HotelFacility extends Model
 
     public function hotels()
     {
-        return $this->belongsToMany(Hotel::class, 'hotel_hotel_facilitie', 'hotel_facilitie_id', 'hotel_id')->where('status', 1)
+        return $this->belongsToMany(Hotel::class, 'hotel_hotel_facilitie', 'hotel_id', 'hotel_facilitie_id')
             ->withPivot('hotel_facilitie_id')  // Include pivot field if needed
             ->withTimestamps();
     }

@@ -37,7 +37,7 @@ class Hotel extends Model
 
     public function facilities()
     {
-        return $this->belongsToMany(HotelFacility::class, 'hotel_hotel_facilitie', 'hotel_id', 'hotel_facilitie_id');
+        return $this->belongsToMany(HotelFacility::class, 'hotel_hotel_facilitie', 'hotel_id', 'hotel_facilitie_id')->withTimestamps();
     }
 
 
