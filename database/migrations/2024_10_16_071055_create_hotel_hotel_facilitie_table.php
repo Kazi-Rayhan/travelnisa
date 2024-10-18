@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('hotel_hotel_facilitie', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('hotel_id')->constrained('hotels')->cascadeOnDelete();
-            $table->foreignId('hotel_facilitie_id')->constrained('hotel_facilities')->cascadeOnDelete();
+            $table->unsignedBigInteger('hotel_id');
+            $table->unsignedBigInteger('hotel_facilitie_id');
             $table->timestamps();
+        
+            $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
+            $table->foreign('hotel_facilitie_id')->references('id')->on('hotel_facilities')->onDelete('cascade');
         });
     }
 
