@@ -36,7 +36,6 @@ class HotelResource extends Resource
                                     ->reactive(),
 
                                 TextInput::make('affiliate_link')
-                                    ->maxLength(25)
                                     ->label('Affiliate Link')
                                     ->columnSpanFull()
                                     ->url()
