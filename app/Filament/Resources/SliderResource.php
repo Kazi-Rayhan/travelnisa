@@ -5,9 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\SliderResource\Pages;
 use App\Filament\Resources\SliderResource\RelationManagers;
 use App\Models\Slider;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\{FileUpload, Group, Grid, Section, TextInput, Toggle,};
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -27,20 +25,43 @@ class SliderResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
-                TextInput::make('heading')
-                    ->required()
-                    ->maxLength(255),
-                FileUpload::make('image')
-                    ->image()
-                    ->directory('sliders')
-                    ->columnSpanFull()
-                    ->required(),
-                Toggle::make('status')
-                    ->columnSpan('full')
-                    ->label('Active'),
+                Section::make()
+                    ->schema([
+                        Grid::make(2)
+                            ->schema([
+                                TextInput::make('title')
+                                    ->required()
+                                    ->maxLength(255),
+                                TextInput::make('heading')
+                                    ->required()
+                                    ->maxLength(255),
+
+                                Toggle::make('status')
+                                    ->columnSpan('full')
+                                    ->label('Active'),
+                            ])
+                    ])
+                    ->columnSpan(2)
+                    ->columns(2),
+                Group::make()
+                    ->schema([
+                        Section::make()
+                            ->schema([
+                                FileUpload::make('image')
+                                    ->image()
+                                    ->directory('sliders')
+                                    ->columnSpanFull()
+                                    ->required(),
+                            ])
+                            ->columnSpan(1),
+                    ]),
+
+
+            ])->columns([
+                'default' => 3,
+                'sm' => 3,
+                'md' => 3,
+                'lg' => 3,
             ]);
     }
 
@@ -51,20 +72,20 @@ class SliderResource extends Resource
                 TextColumn::make('title')
                     ->sortable()
                     ->searchable(),
+                ImageColumn::make('image')
+                    ->label('Slider Image'),
                 TextColumn::make('heading')
                     ->sortable()
                     ->searchable(),
-                ImageColumn::make('image')
-                    ->label('Slider Image')
-                    ->circular(),
 
             ])
             ->filters([
                 // Optionally add filters here
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),   // View action
-                Tables\Actions\EditAction::make(),   // Edit action
+                // Tables\Actions\ViewAction::make(),   
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

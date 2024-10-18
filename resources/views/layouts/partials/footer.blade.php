@@ -58,7 +58,7 @@
                         <h3 class="footer-title">About Hotel</h3>
                         <p class="footer-about-text">{{ Settings::setting('description') }}</p>
 
-                        <div class="footer-language">
+                        {{-- <div class="footer-language">
                             
                             <div class="dropdown bg-darkblack" style="width: 100%">
                                 <button class="dropbtn">Language <samp><i class="lni ti-world"></i></samp></button>
@@ -68,7 +68,7 @@
                                     <a href="{{ url('lang/da') }}">Danish</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>

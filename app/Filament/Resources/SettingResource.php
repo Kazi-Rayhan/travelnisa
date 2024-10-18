@@ -8,6 +8,8 @@ use App\Models\Setting;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -29,35 +31,53 @@ class SettingResource extends Resource
     {
         return $form
             ->schema([
-                Grid::make(3)
+                Section::make()
                     ->schema([
+                        Grid::make(2)
+                            ->schema([
+                                TextInput::make('display_name')
+                                    ->required()
+                                    ->maxLength(255),
 
-                        TextInput::make('display_name')
-                            ->required()
-                            ->maxLength(255),
-
-                        TextInput::make('key')
-                            ->required()
-                            ->maxLength(255)
-                            ->unique(ignorable: fn($record) => $record),
-                        Select::make('type')
-                            ->options([
-                                'text' => 'Text',
-                                'image' => 'Image',
+                                TextInput::make('key')
+                                    ->required()
+                                    ->maxLength(255)
+                                    ->unique(ignorable: fn($record) => $record),
+                                Textarea::make('value')
+                                    ->columnSpanFull()
+                                    ->rows(3)
+                                    ->maxLength(65535),
                             ])
-                            ->default('text')
-                            ->required(),
+                    ])
+                    ->columnSpan(2)
+                    ->columns(2),
+                Group::make()
+                    ->schema([
+                        Section::make()
+                            ->schema([
+                                Select::make('type')
+                                    ->options([
+                                        'text' => 'Text',
+                                        'image' => 'Image',
+                                    ])
+                                    ->default('text')
+                                    ->required(),
+                                FileUpload::make('image')
+                                    ->directory('setting')
+                                    ->visibility('public')
+                                    ->columnSpanFull()
+                                    ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png']),
+                            ])
+                            ->columnSpan(1),
                     ]),
 
-                Textarea::make('value')
-                    ->columnSpanFull()
-                    ->maxLength(65535),
 
-                FileUpload::make('image')
-                    ->directory('setting')
-                    ->visibility('public')
-                    ->columnSpanFull()
-                    ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png']),
+
+            ])->columns([
+                'default' => 3,
+                'sm' => 3,
+                'md' => 3,
+                'lg' => 3,
             ]);
     }
 
@@ -72,7 +92,7 @@ class SettingResource extends Resource
                     ->label('Created At')
                     ->sortable()
                     ->dateTime('M d, Y'),
-                    
+
             ])
             ->filters([
                 //

@@ -19,8 +19,9 @@ class PagesController extends Controller
         $hotels = Hotel::latest()->limit(3)->get();
         $sliders = Slider::where('status', 1)->latest()->get();
         $hotelFacility = HotelFacility::all();
+        $topHotels = Hotel::where('status', 1)->latest()->get();
 
-        return view('frontend.home_page', compact('hotels', 'sliders', 'hotelFacility'));
+        return view('frontend.home_page', compact('hotels', 'sliders', 'hotelFacility', 'topHotels'));
     }
 
     public function faqsPage()

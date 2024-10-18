@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('hotel_id')->constrained('hotels')->cascadeOnDelete();
             $table->foreignId('hotel_facilitie_id')->constrained('hotel_facilities')->cascadeOnDelete();
-            $table->string('attributes');
             $table->timestamps();
         });
     }

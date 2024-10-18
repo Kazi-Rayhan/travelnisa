@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\PageResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\PageResource\RelationManagers;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Section;
 
 class PageResource extends Resource
 {
@@ -29,32 +31,50 @@ class PageResource extends Resource
     {
         return $form
             ->schema([
-                Grid::make(2)
-                ->schema([
+                Section::make()
+                    ->schema([
 
-                    TextInput::make('display_name')
-                        ->required()
-                        ->label('Display Name')
-                        ->maxLength(255),
+                        TextInput::make(name: 'page_title')
+                            ->required()
+                            ->label('Page Title')
+                            ->columnSpanFull()
+                            ->maxLength(455),
+                        RichEditor::make(name: 'description')
+                            ->required()
+                            ->columnSpanFull(),
 
-                    TextInput::make('key')
-                        ->required()
-                        ->maxLength(20)
-                        ->disabledOn('edit')
-                        ->unique(ignorable: fn($record) => $record),
-                ]),
-                TextInput::make(name: 'page_title')
-                ->required()
-                ->label('Page Title')
-                ->maxLength(255),
-                FileUpload::make('images')
-                ->directory('pages')
-                ->multiple()
-                ->maxFiles(2)
-                ->visibility('public')
-                ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png']),
-                RichEditor::make(name: 'description')
-                ->required()->columnSpanFull(),
+                    ])
+                    ->columnSpan(2)
+                    ->columns(2),
+                Group::make()
+                    ->schema([
+                        Section::make()
+                            ->schema([
+
+                                TextInput::make('display_name')
+                                    ->required()
+                                    ->label('Display Name')
+                                    ->maxLength(255),
+
+                                TextInput::make('key')
+                                    ->required()
+                                    ->maxLength(20)
+                                    ->disabledOn('edit')
+                                    ->unique(ignorable: fn($record) => $record),
+                                FileUpload::make('images')
+                                    ->directory('pages')
+                                    ->multiple()
+                                    ->maxFiles(2)
+                                    ->visibility('public')
+                                    ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png']),
+                            ])
+                    ])
+                    ->columnSpan(1),
+            ])->columns([
+                'default' => 3,
+                'sm' => 3,
+                'md' => 3,
+                'lg' => 3,
             ]);
     }
 

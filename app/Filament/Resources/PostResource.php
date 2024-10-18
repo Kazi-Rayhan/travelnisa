@@ -16,6 +16,7 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\BadgeColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
@@ -83,7 +84,7 @@ class PostResource extends Resource
                             ->image()
                             ->directory('posts'),
                         Textarea::make('excerpt')
-                        ->rows(6)
+                            ->rows(6)
                             ->required(),
                         RichEditor::make('body')
                             ->required(),
@@ -98,19 +99,26 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')->sortable()->searchable(),
+                TextColumn::make('title')
+                    ->sortable()
+                    ->limit(20)
+                    ->searchable(),
                 ImageColumn::make('image'),
-                TextColumn::make('status')->sortable(),
+                TextColumn::make('status')
+                    ->sortable()
+                    ->searchable(),
                 IconColumn::make('featured')
                     ->label('Featured')
                     ->boolean(),
-                TextColumn::make('created_at')->label('Created At')->sortable(),
+                TextColumn::make('created_at')
+                    ->label('Created At')
+                    ->sortable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
+                // Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])

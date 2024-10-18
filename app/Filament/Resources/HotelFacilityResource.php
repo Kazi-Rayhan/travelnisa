@@ -16,6 +16,8 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Toggle;
 
 class HotelFacilityResource extends Resource
@@ -28,32 +30,47 @@ class HotelFacilityResource extends Resource
     {
         return $form
             ->schema([
-                Grid::make(2)
+                Section::make()
                     ->schema([
-
                         TextInput::make('heading')
                             ->required()
                             ->maxLength(255)
+                            ->columnSpanFull()
                             ->label('Heading'),
-                        FileUpload::make('image')
-                            ->required()
-                            ->directory('Hotel Facility')
-                            ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png', 'image/svg+xml'])
-                            ->label('Icon'),
 
+
+                        Textarea::make('description')
+                            ->columnSpanFull()
+                            ->rows(3)
+                            ->label('Description'),
+
+                    ])
+                    ->columnSpan(2)
+                    ->columns(2),
+                Group::make()
+                    ->schema([
+                        Section::make()
+                            ->schema([
+                                FileUpload::make('image')
+                                    ->required()
+                                    ->directory('Hotel Facility')
+                                    ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png', 'image/svg+xml'])
+                                    ->label('Icon'),
+                                // Toggle::make('status')
+                                //     ->onIcon('heroicon-o-bolt')
+                                //     ->offIcon('heroicon-o-building-library')
+                                //     ->onColor('success')
+                                //     ->offColor('danger')
+                                //     ->columnSpan('full')
+                                //     ->label('Active'),
+                            ])
+                            ->columnSpan(1)
                     ]),
-                Textarea::make('description')
-                    ->columnSpanFull()
-                    ->rows(6)
-                    ->label('Description'),
-
-                Toggle::make('status')
-                    ->onIcon('heroicon-o-bolt')
-                    ->offIcon('heroicon-o-building-library')
-                    ->onColor('success')
-                    ->offColor('danger')
-                    ->columnSpan('full')
-                    ->label('Paid Services'),
+            ])->columns([
+                'default' => 3,
+                'sm' => 3,
+                'md' => 3,
+                'lg' => 3,
             ]);
     }
 

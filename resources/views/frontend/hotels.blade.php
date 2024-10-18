@@ -47,16 +47,18 @@
 
                         $images = is_array($hotel['images']) ? $hotel['images'] : json_decode($hotel['images'], true);
                         $image = $images[0] ?? null;
+
+                        $hotelLink = route('single_hotel', $hotel['id']);
                     @endphp
 
                     <div class="col-md-{{ $index < $triplePairIndex ? '4' : '6' }}">
                         <div class="item">
                             {{-- @dd($hotel) --}}
                             <div class="position-re o-hidden"> <img src="{{ Storage::url($image) }}" alt=""> </div>
-                            <span class="category"><a href="">Book</a></span>
+                            {{-- <span class="category"><a href="">Book</a></span> --}}
                             <div class="con">
-                                <h6><a href="{{ route('single_hotel', $hotel) }}">150$ / Night</a></h6>
-                                <h5><a href="{{ route('single_hotel', $hotel) }}">{{ $hotel->name }}</a> </h5>
+                                {{-- <h6><a href="{{ route('single_hotel', $hotel) }}">150$ / Night</a></h6> --}}
+                                <h5><a href="{{ $hotelLink }}">{{ $hotel->name }}</a> </h5>
                                 <div class="line"></div>
                                 <div class="row facilities">
                                     <div class="col col-md-7">
@@ -68,7 +70,7 @@
                                         </ul>
                                     </div>
                                     <div class="col col-md-5 text-end">
-                                        <div class="permalink"><a href="{{ route('single_hotel', $hotel) }}">{{ __('sentence.details') }} <i
+                                        <div class="permalink"><a href="{{ $hotelLink }}">Details <i
                                                     class="ti-arrow-right"></i></a></div>
                                     </div>
                                 </div>
@@ -86,8 +88,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="section-subtitle">{{ __('sentence.our_services') }}</div>
-                    <div class="section-title">{{ __('sentence.hotel_facilities') }}</div>
+                    <div class="section-subtitle">Our_services</div>
+                    <div class="section-title">Hotel Facilities</div>
                 </div>
             </div>
             <div class="row">

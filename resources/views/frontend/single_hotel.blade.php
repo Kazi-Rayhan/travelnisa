@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Detail
+    Detail
 @endsection
 @push('front_style')
 @endpush
@@ -26,85 +26,75 @@ Detail
     <section class="rooms-page section-padding bg-darkblack" data-scroll-index="1">
         <div class="container">
             <!-- project content -->
+            {{-- @dd($hotel) --}}
             <div class="row">
                 <div class="col-md-12">
-                    {{-- <span>
-                        <i class="star-rating"></i>
-                        <i class="star-rating"></i>
-                        <i class="star-rating"></i>
-                        <i class="star-rating"></i>
-                        <i class="star-rating"></i>
-                    </span> --}}
-                    {{-- @dd($hotel) --}}
-                    <div class="section-subtitle">Luxury Hotel</div>
+                    <span>
+                        @for ($i = 0; $i < substr($hotel->hotel_class, 0, 1); $i++)
+                            <i class="star-rating"></i>
+                        @endfor
+                    </span>
+
+                    <div class="section-subtitle">{{ $hotel->hotel_style }}</div>
                     <div class="section-title">{{ $hotel->name }}</div>
                 </div>
                 <div class="col-md-8">
-                    <p class="mb-30">Hotel non lorem ac erat suscipit bibendum nulla facilisi. Sedeuter nunc volutpat miss
-                        sapien vel conseyen turpeutionyer masin libero sevenion vusetion viventa augue sit amet hendrerit
-                        vestibulum. Duisteyerion venenatis lacus gravida eros ut turpis interdum ornare.</p>
-                    <p class="mb-30">Interdum et malesu they adamale fames ac anteipsu pimsine faucibus curabitur arcu site
-                        feugiat in tortor in, volutpat sollicitudin libero. Hotel non lorem acer suscipit bibendum vulla
-                        facilisi nedeuter nunc volutpa mollis sapien velet conseyer turpeutionyer masin libero sempe mollis.
-                    </p>
+                    <h6>Address</h6>
+                    <p class="mb-30">{{ $hotel->address }} {{ $hotel->city }} {{ $hotel->cuntry }}</p>
+
+                    <h6 class="mb-30">About</h6>
+                    <p class="mb-30">{{ $hotel->about }}</p>
+
+                    <p class="mb-30">{{ $hotel->summary }}</p>
                     <div class="row">
                         <div class="col-md-6">
-                            <h6>Check-in</h6>
+                            <h6>Food Concept</h6>
                             <ul class="list-unstyled page-list mb-30">
                                 <li>
-                                    <div class="page-list-icon"> <span class="ti-check"></span> </div>
-                                    <div class="page-list-text">
-                                        <p>Check-in from 9:00 AM - anytime</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="page-list-icon"> <span class="ti-check"></span> </div>
-                                    <div class="page-list-text">
-                                        <p>Early check-in subject to availability</p>
+                                    {{-- <div class="page-list-icon"> <span class="ti-check"></span> </div> --}}
+                                    <div class="page-list-text" style="text-align: justify">
+                                        <p>{!! $hotel->foodConcept !!}</p>
                                     </div>
                                 </li>
                             </ul>
                         </div>
+
                         <div class="col-md-6">
-                            <h6>Check-out</h6>
+                            <h6>Children Concept</h6>
                             <ul class="list-unstyled page-list mb-30">
                                 <li>
-                                    <div class="page-list-icon"> <span class="ti-check"></span> </div>
-                                    <div class="page-list-text">
-                                        <p>Check-out before noon</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="page-list-icon"> <span class="ti-check"></span> </div>
-                                    <div class="page-list-text">
-                                        <p>Express check-out</p>
+                                    {{-- <div class="page-list-icon"> <span class="ti-check"></span> </div> --}}
+                                    <div class="page-list-text" style="text-align: justify">
+                                        <p>{!! $hotel->childrenConcept !!}</p>
                                     </div>
                                 </li>
                             </ul>
                         </div>
+
                         <div class="col-md-12">
-                            <h6>Special check-in instructions</h6>
-                            <p>Guests will receive an email 5 days before arrival with check-in instructions; front desk
-                                staff will greet guests on arrival For more details, please contact the property using the
-                                information on the booking confirmation.</p>
+                            <h6>Beach</h6>
+                            <p style="text-align: justify">{!! $hotel->beach !!}</p>
                         </div>
+
                         <div class="col-md-12">
-                            <h6>Pets</h6>
-                            <p>Pets not allowed</p>
+                            <h6>Honeymoon</h6>
+                            <p style="text-align: justify">{!! $hotel->honeymoon !!}</p>
                         </div>
+
                         <div class="col-md-12">
-                            <h6>Children and extra beds</h6>
-                            <p>Children are welcome Kids stay free! Children stay free when using existing bedding; children
-                                may not be eligible for complimentary breakfast Rollaway/extra beds are available for $ 10
-                                per day.</p>
+                            <h6>General Warning</h6>
+                            <p style="text-align: justify">{!! $hotel->generalWarning !!}</p>
                         </div>
+
                         <div class="col-md-12">
-                            <div class="butn-dark mt-15 mb-30"> <a href="#"><span>Check Now</span></a> </div>
+                            <div class="butn-dark mt-15 mb-30"> <a href="{{ $hotel->affiliate_link }}"><span>Check
+                                        Now</span></a> </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 offset-md-1">
-                    <h6>Amenities</h6>
+
+                    <h6>Hotel Facilities</h6>
                     <ul class="list-unstyled page-list mb-30">
                         <li>
                             <div class="page-list-icon"> <span class="flaticon-group"></span> </div>
@@ -142,6 +132,30 @@ Detail
                                 <p>Swimming Pool</p>
                             </div>
                         </li>
+                    </ul>
+                    <h6>Free Services</h6>
+                    <ul class="list-unstyled page-list mb-30">
+                        @foreach ($hotel->freeServices as $free)
+                            <li>
+                                <div class="page-list-icon"> <span class="ti-check"></span> </div>
+                                <div class="page-list-text">
+                                    <p>{{ $free }}</p>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <h6>Paid Services</h6>
+                    <ul class="list-unstyled page-list mb-30">
+                        @forelse ($hotel->paidServices as $paid)
+                            <li>
+                                <div class="page-list-icon"> <span class="ti-check"></span> </div>
+                                <div class="page-list-text">
+                                    <p>{{ $paid }}</p>
+                                </div>
+                            </li>
+                        @empty
+                            <p>No Paid Services</p>
+                        @endforelse
                     </ul>
                 </div>
             </div>

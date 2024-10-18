@@ -6,7 +6,9 @@ use App\Filament\Resources\RoomTypeResource\Pages;
 use App\Models\RoomType;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Group;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
@@ -26,47 +28,71 @@ class RoomTypeResource extends Resource
     {
         return $form
             ->schema([
-                Select::make('hotel_id')
-                    ->relationship(name: 'hotel', titleAttribute: 'name')
-                    ->label('Hotel Name')
-                    ->required(),
-
-                TextInput::make('name')
-                    ->required()
-                    ->maxLength(255)
-                    ->label('Room Type')
-                    ->reactive(),
-                RichEditor::make(name: 'description')
-                    ->required()->columnSpanFull(),
-                Grid::make(3)
+                Section::make()
                     ->schema([
-                        TextInput::make('price_per_night')
-                            ->required()
-                            ->numeric()
-                            ->label('Price Per Night')
-                            ->reactive()
-                            ->columnSpan(1),
+                        Grid::make(3)
+                            ->schema([
+                                TextInput::make('name')
+                                    ->required()
+                                    ->maxLength(255)
+                                    ->label('Room Type')
+                                    ->reactive(),
 
-                        TextInput::make('max_occupancy')
-                            ->required()
-                            ->numeric()
-                            ->label('Max Occupancy')
-                            ->reactive()
-                            ->columnSpan(1),
-                        TagsInput::make('amenities')
-                            ->separator(',')
-                            ->label('Amenities')
-                            ->placeholder('New Amenities')
-                            ->required()
-                            ->columnSpan(1),
-                    ]),
-                FileUpload::make('images')
-                    ->required()
-                    ->directory('room_type')
-                    ->multiple()
-                    ->visibility('public')
-                    ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png'])
-                    ->columnSpanFull(),
+                                TextInput::make('price_per_night')
+                                    ->required()
+                                    ->numeric()
+                                    ->label('Price Per Night')
+                                    ->reactive(),
+
+                                TextInput::make('max_occupancy')
+                                    ->required()
+                                    ->numeric()
+                                    ->label('Max Occupancy')
+                                    ->reactive(),
+
+                                RichEditor::make(name: 'description')
+                                    ->required()
+                                    ->columnSpanFull(),
+                            ]),
+                    ])
+                    ->columns(2)
+                    ->columnSpan(2),
+                Group::make()
+                    ->schema([
+                        Section::make()
+                            ->schema([
+                                Select::make('hotel_id')
+                                    ->relationship(name: 'hotel', titleAttribute: 'name')
+                                    ->label('Hotel Name')
+                                    ->required(),
+
+                                TagsInput::make('amenities')
+                                    ->separator(',')
+                                    ->label('Amenities')
+                                    ->placeholder('New Amenities')
+                                    ->required(),
+
+                                FileUpload::make('images')
+                                    ->required()
+                                    ->directory('room_type')
+                                    ->multiple()
+                                    ->visibility('public')
+                                    ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png'])
+                                    ->columnSpanFull(),
+                            ])
+                    ])
+                    ->columnSpan(1),
+
+
+
+
+
+
+            ])->columns([
+                'default' => 3,
+                'sm' => 3,
+                'md' => 3,
+                'lg' => 3,
             ]);
     }
 

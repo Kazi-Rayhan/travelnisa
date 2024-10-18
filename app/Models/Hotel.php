@@ -11,11 +11,12 @@ use Illuminate\Support\Str;
 class Hotel extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     protected $casts = [
+        'freeServices' => 'array',
+        'paidServices' => 'array',
         'images' => 'array',
-        'attributes' => 'array',
     ];
 
     // public function getRouteKey()
@@ -36,6 +37,20 @@ class Hotel extends Model
 
     public function facilities()
     {
-        return $this->belongsToMany(HotelFacility::class, 'hotel_hotel_facilitie', 'hotel_id', 'hotel_facilitie_id')->withPivot('attributes');
+        return $this->belongsToMany(HotelFacility::class, 'hotel_hotel_facilitie', 'hotel_id', 'hotel_facilitie_id');
+    }
+
+
+    public function hotelClass()
+    {
+        if ($this->hotel_class == '2 Star') {
+            return '<i class="star-rating"></i> <i class="star-rating"></i>';
+        } elseif ($this->hotel_class == '3 Star') {
+            return '<i class="star-rating"></i> <i class="star-rating"></i> <i class="star-rating"></i>';
+        } elseif ($this->hotel_class == '4 Star') {
+            return '<i class="star-rating"></i> <i class="star-rating"></i> <i class="star-rating"></i> <i class="star-rating"></i>';
+        } else {
+            return '<i class="star-rating"></i> <i class="star-rating"></i> <i class="star-rating"></i> <i class="star-rating"></i> <i class="star-rating"></i>';
+        }
     }
 }

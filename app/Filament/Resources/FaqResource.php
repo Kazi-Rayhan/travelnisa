@@ -4,6 +4,8 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\FaqResource\Pages;
 use App\Models\Faq;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -23,20 +25,27 @@ class FaqResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('order')
-                    ->required()
-                    ->numeric()
-                    ->label('Order')
-                    ->maxLength(255),
-                TextInput::make('title')
-                    ->required()
-                    ->label('Question')
-                    ->maxLength(255),
-                Textarea::make('body')
-                    ->columnSpan('full')
-                    ->label('Answer')
-                    ->rows(6)
-                    ->required(),
+                Section::make()
+                    ->schema([
+                        Grid::make(2)
+                            ->schema([
+                                TextInput::make('title')
+                                    ->required()
+                                    ->label('Question')
+                                    ->maxLength(255),
+
+                                TextInput::make('order')
+                                    ->required()
+                                    ->numeric()
+                                    ->label('Order')
+                                    ->maxLength(255),
+                            ]),
+                        Textarea::make('body')
+                            ->columnSpan('full')
+                            ->label('Answer')
+                            ->rows(6)
+                            ->required(),
+                    ]),
             ]);
     }
 
