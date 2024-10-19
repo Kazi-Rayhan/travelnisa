@@ -21,7 +21,7 @@
     <section class="about section-padding bg-darkblack">
         <div class="container">
             <div class="row">
-                <div class="col-md-9 mb-30 animate-box" data-animate-effect="fadeInUp">
+                <div class="col-md-12 mb-30 animate-box" data-animate-effect="fadeInUp">
                     <div class="section-subtitle">{{ Settings::setting('site_name') }}</div>
                     <h1>{{ $about->page_title ?? '' }}</h1>
                     <p>{!! $about->description ?? 'No description available.' !!}</p>
