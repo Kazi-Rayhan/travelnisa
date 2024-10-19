@@ -64,7 +64,6 @@ class PageResource extends Resource
                                 FileUpload::make('images')
                                     ->directory('pages')
                                     ->multiple()
-                                    ->maxFiles(2)
                                     ->visibility('public')
                                     ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png']),
                             ])
@@ -90,7 +89,9 @@ class PageResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),   
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

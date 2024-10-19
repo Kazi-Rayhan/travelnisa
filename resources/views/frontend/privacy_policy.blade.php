@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-12 text-left caption mt-90">
                     <h5>Get in touch</h5>
-                    <h1>Contact Us</h1>
+                    <h1>{{ $privacy_policy->display_name ?? '' }}</h1>
                 </div>
             </div>
         </div>
@@ -22,6 +22,7 @@
         <div class="container">
             <div class="row mb-90">
                 <div class="col-12">
+                    <h1>{{ $privacy_policy->page_title ?? '' }}</h1>
                     <p>{!! $privacy_policy->description ?? 'No privacy policy available.' !!}</p>
                 </div>
             </div>

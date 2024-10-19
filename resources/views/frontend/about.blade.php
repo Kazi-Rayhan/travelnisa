@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-12 caption mt-90">
                     <h5>{{ Settings::setting('site_name') }}</h5>
-                    <h1>{{ $about->page_title ?? '' }}</h1>
+                    <h1>{{ $about->display_name ?? '' }}</h1>
                 </div>
             </div>
         </div>
@@ -21,8 +21,9 @@
     <section class="about section-padding bg-darkblack">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mb-30 animate-box" data-animate-effect="fadeInUp">
+                <div class="col-md-9 mb-30 animate-box" data-animate-effect="fadeInUp">
                     <div class="section-subtitle">{{ Settings::setting('site_name') }}</div>
+                    <h1>{{ $about->page_title ?? '' }}</h1>
                     <p>{!! $about->description ?? 'No description available.' !!}</p>
 
                 </div>

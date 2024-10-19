@@ -96,6 +96,7 @@
 
                     <h6>Hotel Facilities</h6>
                     <ul class="list-unstyled page-list mb-30">
+                        @dd($hotel->facilities)
                         <li>
                             <div class="page-list-icon"> <span class="flaticon-group"></span> </div>
                             <div class="page-list-text">
@@ -137,7 +138,7 @@
                     <ul class="list-unstyled page-list mb-30">
                         @foreach ($hotel->freeServices as $free)
                             <li>
-                                <div class="page-list-icon"> <span class="ti-check"></span> </div>
+                                <div class="page-list-icon"> <i class="fa-solid fa-star" style="color: #aa8453"></i> </div>
                                 <div class="page-list-text">
                                     <p>{{ $free }}</p>
                                 </div>
@@ -148,7 +149,7 @@
                     <ul class="list-unstyled page-list mb-30">
                         @forelse ($hotel->paidServices as $paid)
                             <li>
-                                <div class="page-list-icon"> <span class="ti-check"></span> </div>
+                                <div class="page-list-icon"> <i class="fa-solid fa-star" style="color: #aa8453"></i> </div>
                                 <div class="page-list-text">
                                     <p>{{ $paid }}</p>
                                 </div>

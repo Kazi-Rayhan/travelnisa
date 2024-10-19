@@ -207,6 +207,7 @@ class HotelResource extends Resource
                                         'Ping pong' => 'Ping pong',
                                         'Tennis Equipment' => 'Tennis Equipment',
                                         'Darts' => 'Darts',
+                                        'Football field' => 'Football field',
                                         'Fitness Center' => 'Fitness Center',
                                         'Archery' => 'Archery',
                                         'Aerobic' => 'Aerobic',
@@ -244,6 +245,7 @@ class HotelResource extends Resource
                                         'Table tennis, okey, chess, backgammon, scrabble etc. games' => 'Table tennis, okey, chess, backgammon, scrabble etc. games',
                                         'Billiards - game room' => 'Billiards - game room',
                                         'Cinema Screening (requests are taken by reservation)' => 'Cinema Screening (requests are taken by reservation)',
+                                        'Table Tennis-Tennis Court (equipment and lighting are chargeable)' => 'Table Tennis-Tennis Court (equipment and lighting are chargeable)',
                                         'Game Hall (The use of game equipment belonging to the enterprise in the hall is chargeable.)' => 'Game Hall (The use of game equipment belonging to the enterprise in the hall is chargeable.)',
 
 
@@ -305,6 +307,8 @@ class HotelResource extends Resource
                                         'Jet Ski(Foreign Service)' => 'Jet Ski(Foreign Service)',
                                         'Boutique' => 'Boutique',
                                         'Souvenir' => 'Souvenir',
+                                        'THE MALL' => 'THE MALL',
+                                        'Meeting room' => 'Meeting room',
                                         'Market' => 'Market',
                                         'Hairdresser and Beauty Saloon' => 'Hairdresser and Beauty Saloon',
                                         'Hairdresser' => 'Hairdresser',
