@@ -96,7 +96,7 @@
 
                     <h6>Hotel Facilities</h6>
                     <ul class="list-unstyled page-list mb-30">
-                        @dd($hotel->facilities)
+                        {{-- @dd($hotel->facilities) --}}
                         <li>
                             <div class="page-list-icon"> <span class="flaticon-group"></span> </div>
                             <div class="page-list-text">
