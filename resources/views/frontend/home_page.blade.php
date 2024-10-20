@@ -164,8 +164,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="section-subtitle">{{ __('sentence.our_services') }}</div>
-                        <div class="section-title">{{ __('sentence.hotel_facilities') }}</div>
+                        <div class="section-subtitle">Our Services</div>
+                        <div class="section-title">Hotel Facilities</div>
                     </div>
                 </div>
                 <div class="row">

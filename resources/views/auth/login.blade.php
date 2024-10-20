@@ -1,11 +1,28 @@
 @extends('layouts.app')
+@push('front_style')
+    <style>
+        .section-padding {
+            padding: 40px !important;
+        }
+    </style>
+@endpush
 @section('content')
-    <section class="contact section-padding">
+    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="4"
+        data-background="{{ asset('assets/frontend/img/slider/1.jpg') }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 caption mt-90">
+                    <h5>Travelnisa</h5>
+                    <h1>Login</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="contact section-padding bg-darkblack">
         <div class="container">
 
             <div class="row mb-90">
-                <div class="col-md-6 mb-30 offset-md-1 mx-auto mt-5">
-                    <h1 class="text-center">Login</h1>
+                <div class="col-md-6 mb-30 offset-md-1 mx-auto">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <!-- form elements -->

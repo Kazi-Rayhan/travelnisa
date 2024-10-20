@@ -3,6 +3,12 @@
     About
 @endsection
 @push('front_style')
+    <style>
+        .page_title {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 @endpush
 @section('content')
     <!-- Header Banner -->
@@ -22,8 +28,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mb-30 animate-box" data-animate-effect="fadeInUp">
-                    <div class="section-subtitle">{{ Settings::setting('site_name') }}</div>
-                    <h1>{{ $about->page_title ?? '' }}</h1>
+                    <div class="section-subtitle text-center">{{ Settings::setting('site_name') }}</div>
+                    <div class="page_title">
+                        <h1 class="text-center" style="width: 700px  !important">{{ $about->page_title ?? '' }}</h1>
+                    </div>
+                    <div class="">
+                        <img src="{{ Storage::url($about->image) }}" alt="Image" class="mt-90 mb-30">
+                    </div>
                     <p>{!! $about->description ?? 'No description available.' !!}</p>
 
                 </div>
