@@ -61,11 +61,10 @@ class PageResource extends Resource
                                     ->maxLength(20)
                                     ->disabledOn('edit')
                                     ->unique(ignorable: fn($record) => $record),
-                                // FileUpload::make('images')
-                                //     ->directory('pages')
-                                //     ->multiple()
-                                //     ->visibility('public')
-                                //     ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png']),
+                                FileUpload::make('images')
+                                    ->directory('pages')
+                                    ->visibility('public')
+                                    ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png']),
                             ])
                     ])
                     ->columnSpan(1),

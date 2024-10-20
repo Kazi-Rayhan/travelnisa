@@ -33,7 +33,7 @@
                         <h1 class="text-center" style="width: 700px  !important">{{ $about->page_title ?? '' }}</h1>
                     </div>
                     <div class="">
-                        <img src="{{ Storage::url($about->image) }}" alt="Image" class="mt-90 mb-30">
+                        <img src="{{ Storage::url($about->images) }}" alt="Image" class="mt-90 mb-30">
                     </div>
                     <p>{!! $about->description ?? 'No description available.' !!}</p>
 
